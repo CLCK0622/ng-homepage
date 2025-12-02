@@ -38,7 +38,7 @@ export default async function Post({ params }: any) {
 
                     {post.image && (
                         <div className="hero-img">
-                            <Image src={post.image} alt={post.title} />
+                            <Image src={post.image} alt={post.title} width={1024} height={768} />
                         </div>
                     )}
                 </header>
