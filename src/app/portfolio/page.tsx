@@ -5,25 +5,25 @@ const PROJECTS = [
     {
         id: 1, title: '11ty Serene', category: 'Theme',
         href: 'https://github.com/CLCK0622/11ty-Serene',
-        image: 'https://private-user-images.githubusercontent.com/36215258/521116732-4cb8e646-6c38-49db-b80d-8f8685677eb4.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ2NDkwOTIsIm5iZiI6MTc2NDY0ODc5MiwicGF0aCI6Ii8zNjIxNTI1OC81MjExMTY3MzItNGNiOGU2NDYtNmMzOC00OWRiLWI4MGQtOGY4Njg1Njc3ZWI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjAyVDA0MTMxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTMxNDU2M2Q0OTg5NDg2MWZlNDNkOTZkOWQxOWEzZWU4MTcwZDhiNjE4NDMwZmI0YzMzNTQxNTA0ZWI0YzQzMTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.NPQC16UXhXHzhJMzbqcqouXr3QqsucUjpyCMDUZjXRo',
+        image: 'https://smms.app/image/HKAYoZVM57yTim6',
         description: 'A minimal theme for a landing page and an integrated blog. Built with 11ty and Sass.'
     },
     {
         id: 2, title: '11ty Serene', category: 'Theme',
         href: 'https://github.com/CLCK0622/11ty-Serene',
-        image: 'https://private-user-images.githubusercontent.com/36215258/521116732-4cb8e646-6c38-49db-b80d-8f8685677eb4.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ2NDkwOTIsIm5iZiI6MTc2NDY0ODc5MiwicGF0aCI6Ii8zNjIxNTI1OC81MjExMTY3MzItNGNiOGU2NDYtNmMzOC00OWRiLWI4MGQtOGY4Njg1Njc3ZWI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjAyVDA0MTMxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTMxNDU2M2Q0OTg5NDg2MWZlNDNkOTZkOWQxOWEzZWU4MTcwZDhiNjE4NDMwZmI0YzMzNTQxNTA0ZWI0YzQzMTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.NPQC16UXhXHzhJMzbqcqouXr3QqsucUjpyCMDUZjXRo',
+        image: 'https://smms.app/image/HKAYoZVM57yTim6',
         description: 'A minimal theme for a landing page and an integrated blog. Built with 11ty and Sass.'
     },
     {
         id: 3, title: '11ty Serene', category: 'Theme',
         href: 'https://github.com/CLCK0622/11ty-Serene',
-        image: 'https://private-user-images.githubusercontent.com/36215258/521116732-4cb8e646-6c38-49db-b80d-8f8685677eb4.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ2NDkwOTIsIm5iZiI6MTc2NDY0ODc5MiwicGF0aCI6Ii8zNjIxNTI1OC81MjExMTY3MzItNGNiOGU2NDYtNmMzOC00OWRiLWI4MGQtOGY4Njg1Njc3ZWI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjAyVDA0MTMxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTMxNDU2M2Q0OTg5NDg2MWZlNDNkOTZkOWQxOWEzZWU4MTcwZDhiNjE4NDMwZmI0YzMzNTQxNTA0ZWI0YzQzMTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.NPQC16UXhXHzhJMzbqcqouXr3QqsucUjpyCMDUZjXRo',
+        image: 'https://smms.app/image/HKAYoZVM57yTim6',
         description: 'A minimal theme for a landing page and an integrated blog. Built with 11ty and Sass.'
     },
     {
         id: 4, title: '11ty Serene', category: 'Theme',
         href: 'https://github.com/CLCK0622/11ty-Serene',
-        image: 'https://private-user-images.githubusercontent.com/36215258/521116732-4cb8e646-6c38-49db-b80d-8f8685677eb4.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ2NDkwOTIsIm5iZiI6MTc2NDY0ODc5MiwicGF0aCI6Ii8zNjIxNTI1OC81MjExMTY3MzItNGNiOGU2NDYtNmMzOC00OWRiLWI4MGQtOGY4Njg1Njc3ZWI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjAyVDA0MTMxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTMxNDU2M2Q0OTg5NDg2MWZlNDNkOTZkOWQxOWEzZWU4MTcwZDhiNjE4NDMwZmI0YzMzNTQxNTA0ZWI0YzQzMTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.NPQC16UXhXHzhJMzbqcqouXr3QqsucUjpyCMDUZjXRo',
+        image: 'https://smms.app/image/HKAYoZVM57yTim6',
         description: 'A minimal theme for a landing page and an integrated blog. Built with 11ty and Sass.'
     },
 ];
