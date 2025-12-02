@@ -15,7 +15,7 @@ export default function Navbar() {
     ];
 
     const isActive = (path: string) => {
-        console.log(pathname);
+        // console.log(pathname);
         if (path === '/') {
             return pathname === '/';
         }
@@ -56,7 +56,7 @@ export default function Navbar() {
                     <Link
                         key={link.href}
                         href={link.href}
-                        className={pathname === link.href ? 'active' : ''}
+                        className={isActive(link.href) ? 'active' : ''}
                     >
                         {link.icon}
                     </Link>
