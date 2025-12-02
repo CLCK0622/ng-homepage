@@ -60,9 +60,9 @@ export default async function Home() {
     return (
         <div className="bento-grid">
             <div className="col-left">
-                {latestPosts[0] ? (
+                {latestPosts[1] ? (
                     <BentoCard
-                        post={{ ...latestPosts[0], image: latestPosts[0].image || defaultImage }}
+                        post={{ ...latestPosts[1], image: latestPosts[1].image || defaultImage }}
                         variant="tall"
                         hasButton={true}
                     />
@@ -72,8 +72,8 @@ export default async function Home() {
                     </div>
                 )}
 
-                {latestPosts[1] && (
-                    <BentoCard post={{ ...latestPosts[1], image: latestPosts[1].image || defaultImage }}
+                {latestPosts[2] && (
+                    <BentoCard post={{ ...latestPosts[2], image: latestPosts[2].image || defaultImage }}
                                hasButton={true}/>
                 )}
             </div>
@@ -101,9 +101,9 @@ export default async function Home() {
                     </div>
                 </div>
 
-                {latestPosts[2] && (
+                {latestPosts[0] && (
                     <BentoCard
-                        post={{ ...latestPosts[2], image: latestPosts[2].image || defaultImage }}
+                        post={{ ...latestPosts[0], image: latestPosts[0].image || defaultImage }}
                         hasButton={true}
                     />
                 )}

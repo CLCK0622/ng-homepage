@@ -3,7 +3,7 @@
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --font-cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 
-    --bg-body: #F5F2EB; /* 高级米色 */
+    --bg-body: #F5F2EB;
     --bg-card: #FFFFFF;
     --bg-dark: #1A1A1A;
 
@@ -34,7 +34,6 @@ body {
 }
 
 h1, h2, h3, h4, p, span, a, button {
-    /* 中英文混排字体设置 */
     font-family: var(--font-main), var(--font-cn);
 }
 
@@ -324,6 +323,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     @media (max-width: 768px) {
         display: flex;
         flex-direction: column;
+        .col-center {
+            order: 1;
+        }
+        .col-right {
+            order: 2;
+        }
+        .col-left {
+            order: 3;
+        }
+        .bento-card {
+            flex-grow: 1;
+        }
     }
 
     .col-left, .col-right { display: flex; flex-direction: column; gap: 1.5rem; }
