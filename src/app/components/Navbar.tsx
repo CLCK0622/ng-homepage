@@ -15,7 +15,7 @@ export default function Navbar() {
     ];
 
     const isActive = (path: string) => {
-        if (path === '/') {
+        if (path == '/') {
             return pathname === '/';
         }
         return pathname?.startsWith(path);
