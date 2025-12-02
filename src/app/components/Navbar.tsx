@@ -14,6 +14,13 @@ export default function Navbar() {
         { href: '/about', label: 'About', icon: <FaUser /> },
     ];
 
+    const isActive = (path: string) => {
+        if (path === '/') {
+            return pathname === '/';
+        }
+        return pathname?.startsWith(path);
+    };
+
     return (
         <>
             <nav className="navbar">
@@ -28,7 +35,7 @@ export default function Navbar() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={pathname === link.href ? 'active' : ''}
+                            className={isActive(link.href) ? 'active' : ''}
                         >
                             {link.label}
                         </Link>
