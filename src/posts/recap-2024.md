@@ -3,6 +3,7 @@ title: "RECAP2024：胶卷中的一年"
 date: 2024-12-25
 tags: ["Life"]
 description: "2024 年度总结"
+image: "https://s2.loli.net/2024/12/25/6tVSZzI7JdyMQNr.jpg"
 ---
 
 回顾了一下先前的年度总结，感觉要么是凭空而谈，要么是略显流水账，今年打算借着相册写。

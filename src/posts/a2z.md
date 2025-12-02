@@ -3,6 +3,7 @@ title: "2024: 浏览器从 A 到 Z"
 date: 2025-03-18
 tags: ["Misc"]
 description: "Chrome 的网页自动补全都是哪些网站呢"
+image: "https://images.unsplash.com/photo-1668854040739-c5958f25f8f8?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
 本文的诞生离不开 [Will 的《2024：浏览器从 A 到 Z》](https://blog.mrwillcom.com/2025/03/04/2024-browser-from-a-to-z/)。

@@ -4,8 +4,6 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-// 确保这里的路径指向你实际存放 .md 文件的目录
-// 根据报错，你的文件在 src/posts 下
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
 export interface PostData {
@@ -33,7 +31,6 @@ export function getSortedPostsData(): PostData[] {
             const fileContents = fs.readFileSync(fullPath, 'utf8');
             const matterResult = matter(fileContents);
 
-            // 日期处理：强制转字符串
             let dateStr = '';
             const rawDate = matterResult.data.date;
             if (rawDate instanceof Date) {
@@ -71,7 +68,6 @@ export async function getPostData(id: string) {
         .process(matterResult.content);
     const contentHtml = processedContent.toString();
 
-    // 日期处理
     let dateStr = '';
     const rawDate = matterResult.data.date;
     if (rawDate instanceof Date) {

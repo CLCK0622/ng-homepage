@@ -36,7 +36,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="nav-action">
-                    <button onClick={() => window.location.href = 'mailto:hello@example.com'}>
+                    <button onClick={() => window.location.href = 'mailto:zhongyi070622@gmail.com'}>
                         Get in touch
                     </button>
                 </div>

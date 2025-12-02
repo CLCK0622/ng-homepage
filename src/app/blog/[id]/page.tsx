@@ -1,7 +1,8 @@
 import { getPostData, getSortedPostsData } from '@/lib/posts';
-import { BsArrowLeft } from 'react-icons/bs';
+import {BsArrowLeft, BsCcCircle} from 'react-icons/bs';
 import Link from 'next/link';
 import Image from "next/image";
+import Comments from "@/app/components/Comments";
 
 export async function generateStaticParams() {
     const posts = getSortedPostsData();
@@ -46,6 +47,25 @@ export default async function Post({ params }: any) {
                     className="markdown-body"
                     dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }}
                 />
+
+                <div className="license-block">
+                    <div className="license-icon">
+                        <BsCcCircle size={24} />
+                    </div>
+                    <div className="license-content">
+                        <p>
+                            <strong>CC BY-SA 4.0</strong>
+                        </p>
+                        <p>
+                            This article is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+                            You are free to share and adapt this work, provided you attribute <strong>Kevin Zhong</strong> and distribute under the same license.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="comments-section">
+                    <Comments />
+                </div>
             </div>
         );
     } catch (error) {

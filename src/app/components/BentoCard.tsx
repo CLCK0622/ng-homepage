@@ -23,7 +23,7 @@ export default function BentoCard({ post, variant = 'standard', hasButton = fals
     return (
         <Link
             href={`/blog/${post.id}`}
-            className={`bento-card ${variant} ${post.image ? 'has-image' : ''}`}
+            className={`bento-card ${variant} ${post.image ? 'has-image' : ''} ${hasButton ? 'has-btn' : ''}`}
             style={{ backgroundImage: post.image ? `url(${post.image})` : undefined }}
         >
             <div className="content">
