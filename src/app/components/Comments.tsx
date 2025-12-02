@@ -18,7 +18,6 @@ export default function Comments() {
                 inputPosition="top"
                 theme="light"
                 lang="en"
-                loading="lazy"
             />
         </div>
     );
