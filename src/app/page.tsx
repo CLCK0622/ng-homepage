@@ -1,66 +1,66 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import BentoCard from './components/BentoCard';
+import Link from 'next/link';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { getSortedPostsData } from '@/lib/posts';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    const allPosts = getSortedPostsData();
+    const latestPosts = allPosts.slice(0, 3);
+    const defaultImage = "https://images.unsplash.com/photo-1518655048521-f130df041f66?q=80&w=2670&auto=format&fit=crop";
+
+    return (
+        <div className="bento-grid">
+            <div className="col-left">
+                {latestPosts[0] ? (
+                    <BentoCard
+                        post={{ ...latestPosts[0], image: latestPosts[0].image || defaultImage }}
+                        variant="tall"
+                        hasButton={true}
+                    />
+                ) : (
+                    <div className="bento-card tall" style={{background: '#f0f0f0', display:'flex', alignItems:'center', justifyContent:'center'}}>
+                        <span style={{color:'#999'}}>Waiting for posts...</span>
+                    </div>
+                )}
+
+                {latestPosts[1] && (
+                    <BentoCard post={{ ...latestPosts[1], image: latestPosts[1].image || defaultImage }} />
+                )}
+            </div>
+
+            <div className="col-center">
+                <div className="hero-container">
+                    <img src="https://images.unsplash.com/photo-1485230405346-71acb9518d9c?q=80&w=2694&auto=format&fit=crop" alt="Hero" />
+                    <div className="hero-overlay">
+                        <h1>Journey Through<br />Life&#39;s Spectrum</h1>
+                        <div className="avatar-pill">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=60" alt="Kevin" />
+                            <span>Kevin Zhong</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="col-right">
+                <div className="intro-box">
+                    <p>Welcome to my digital garden. A realm of reflection, code, and design where words illuminate paths of meaning.</p>
+                    <div className="social-row">
+                        <Link href="/portfolio" className="btn-projects">View Projects</Link>
+                        <div className="social-icons">
+                            <a href="#"><FaGithub size={18} /></a>
+                            <a href="#"><FaLinkedin size={18} /></a>
+                            <a href="#"><FaTwitter size={18} /></a>
+                        </div>
+                    </div>
+                </div>
+
+                {latestPosts[2] && (
+                    <BentoCard
+                        post={{ ...latestPosts[2], image: latestPosts[2].image || defaultImage }}
+                        hasButton={true}
+                    />
+                )}
+            </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    );
 }
