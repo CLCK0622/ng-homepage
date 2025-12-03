@@ -19,6 +19,7 @@
     --radius-sm: 12px;
 
     --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
     --shadow-hover: 0 12px 24px rgba(0,0,0,0.06);
 }
 
@@ -615,7 +616,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
                 border-radius: var(--radius-sm);
                 transition: box-shadow 0.2s;
 
-                &:hover { box-shadow: var(--shadow-sm); }
+                &:hover { box-shadow: var(--shadow-md); }
                 .icon { font-size: 1.25rem; color: var(--text-primary); }
                 span { font-size: 0.9rem; font-weight: 500; }
             }
