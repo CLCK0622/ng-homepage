@@ -2,7 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html';
+import remarkMath from 'remark-math';
+import remarkRehype from 'remark-rehype';
+import rehypeKatex from 'rehype-katex';
+import rehypeStringify from 'rehype-stringify';
+import remarkGfm from "remark-gfm";
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -18,7 +22,6 @@ export interface PostData {
 
 export function getSortedPostsData(): PostData[] {
     if (!fs.existsSync(postsDirectory)) {
-        console.warn(`Warning: Posts directory not found at ${postsDirectory}`);
         return [];
     }
 
@@ -64,8 +67,13 @@ export async function getPostData(id: string) {
     const matterResult = matter(fileContents);
 
     const processedContent = await remark()
-        .use(html)
+        .use(remarkGfm)
+        .use(remarkMath)
+        .use(remarkRehype)
+        .use(rehypeKatex)
+        .use(rehypeStringify)
         .process(matterResult.content);
+
     const contentHtml = processedContent.toString();
 
     let dateStr = '';

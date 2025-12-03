@@ -817,6 +817,50 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         font-weight: 700;
         color: #000;
     }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        font-size: 0.95rem;
+        overflow-x: auto;
+        display: block;
+
+        @media (min-width: 768px) {
+            display: table;
+        }
+    }
+
+    thead {
+        background-color: rgba(0,0,0,0.03);
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        padding: 0.75rem 1rem;
+        border: 1px solid rgba(0,0,0,0.1);
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(0,0,0,0.01);
+    }
+
+    .katex {
+        font-size: 1.1em;
+        font-family: KaTeX_Main, 'Times New Roman', serif !important;
+
+        * {
+            font-family: inherit !important;
+        }
+    }
+
+    .katex-display {
+        margin: 1.5rem 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.5rem 0;
+    }
 }
 
 /* --- CC BY-SA License Block --- */
