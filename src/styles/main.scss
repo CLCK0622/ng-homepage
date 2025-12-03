@@ -3,7 +3,7 @@
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --font-cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
     --font-post: 'Lora', 'Noto Serif', serif;
-    --font-post-cn: inherit;
+    --font-post-cn: 'Noto Serif SC', serif;
     --font-code: "Cascadia Mono", "Monaco", monospace;
 
     --bg-body: #F5F2EB;
@@ -633,6 +633,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     margin: 0 auto;
     padding-top: 2rem;
     padding-bottom: 6rem;
+    font-family: var(--font-post), var(--font-post-cn) !important;
 
     .back-link {
         margin-bottom: 3rem;
@@ -682,20 +683,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
             letter-spacing: -0.02em;
             color: var(--text-primary);
         }
-
-        .hero-img {
-            width: 100%;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            margin-top: 2rem;
-            box-shadow: var(--shadow-sm);
-
-            img {
-                width: 100%;
-                height: auto;
-                display: block;
-            }
-        }
     }
 }
 
@@ -708,6 +695,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     p {
         margin-top: 1.25rem;
         margin-bottom: 1.25rem;
+        font-family: var(--font-post), var(--font-post-cn) !important;
     }
 
     h2 {
@@ -734,13 +722,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
     blockquote {
         border-left: 4px solid var(--accent);
-        padding-left: 1.2rem;
         color: var(--text-secondary);
         font-style: italic;
         background: rgba(0,0,0,0.02);
-        padding: 1.2rem;
+        padding: 0.1rem 1rem;
         border-radius: 0 12px 12px 0;
-        margin: 2.5rem 0;
     }
 
     ul, ol {
@@ -813,6 +799,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
     a {
         color: var(--text-primary);
+        font-family: var(--font-post), var(--font-post-cn) !important;
         text-decoration: underline;
         text-decoration-thickness: 1px;
         text-underline-offset: 4px;
@@ -830,7 +817,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         max-width: 100%;
         height: auto;
         border-radius: 12px;
-        //margin: 2.5rem 0;
+        margin: 0 auto;
         box-shadow: var(--shadow-sm);
     }
 
@@ -888,15 +875,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         overflow-x: auto;
         overflow-y: hidden;
         padding: 0.5rem 0;
-    }
-
-    img {
-        display: block;
-        margin: 2.5rem auto;
-        max-width: 100%;
-        height: auto;
-        border-radius: 12px;
-        box-shadow: var(--shadow-sm);
     }
 
     iframe, video, embed, .twitter-tweet {

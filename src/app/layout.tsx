@@ -37,7 +37,7 @@ export default function RootLayout({
                 crossOrigin="anonymous"
             />
             <style>
-                @import url(https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap);
+                @import url(https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+SC:wght@200..900&display=swap);
             </style>
         </head>
         <body>
