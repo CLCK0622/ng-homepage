@@ -4,6 +4,7 @@ import '../styles/main.scss';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { SITE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-main' });
 const notoSansSC = Noto_Sans_SC({ subsets: ['latin'], variable: '--font-cn', weight: ['400', '500', '700'] });
@@ -37,6 +38,7 @@ export default function RootLayout({
             <Footer />
         </div>
         </body>
+        <SpeedInsights/>
         </html>
     );
 }
