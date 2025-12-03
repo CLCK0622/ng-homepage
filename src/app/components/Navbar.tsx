@@ -3,9 +3,18 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaHome, FaPenNib, FaUser, FaThLarge } from 'react-icons/fa';
+import {useEffect, useState} from "react";
 
 export default function Navbar() {
     const pathname = usePathname();
+    const [currentPath, setCurrentPath] = useState('');
+
+    useEffect(() => {
+        if (pathname) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setCurrentPath(pathname);
+        }
+    }, [pathname]);
 
     const links = [
         { href: '/', label: 'Home', icon: <FaHome /> },
@@ -15,11 +24,12 @@ export default function Navbar() {
     ];
 
     const isActive = (path: string) => {
-        console.log(pathname);
+        if (!currentPath) return false;
+
         if (path === '/') {
-            return pathname === '/';
+            return currentPath === '/';
         }
-        return pathname?.startsWith(path);
+        return currentPath.startsWith(path);
     };
 
     return (
