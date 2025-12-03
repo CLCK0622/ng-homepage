@@ -36,6 +36,9 @@ export default function RootLayout({
                 integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
                 crossOrigin="anonymous"
             />
+            <style>
+                @import url(https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap);
+            </style>
         </head>
         <body>
         <div className="app-container">

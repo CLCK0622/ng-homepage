@@ -20,6 +20,8 @@ export default async function Post({ params }: any) {
 
         return (
             <div className="article-container">
+                <div className="reading-progress-bar"></div>
+
                 <div className="back-link">
                     <Link href="/blog" style={{display:'inline-flex', alignItems:'center', gap:'8px'}}>
                         <BsArrowLeft /> <span>Back to writing</span>

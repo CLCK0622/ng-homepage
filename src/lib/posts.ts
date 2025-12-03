@@ -7,6 +7,9 @@ import remarkRehype from 'remark-rehype';
 import rehypeKatex from 'rehype-katex';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
+import rehypePrettyCode from "rehype-pretty-code";
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -66,10 +69,21 @@ export async function getPostData(id: string) {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
+    // const prettyCodeOptions = {
+    //     theme: 'one-dark-pro',
+    //     keepBackground: true,
+    //     defaultLang: {
+    //         block: 'plaintext',
+    //         inline: 'plaintext',
+    //     },
+    // };
+
     const processedContent = await remark()
         .use(remarkGfm)
         .use(remarkMath)
-        .use(remarkRehype)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeRaw)
+        .use(rehypePrettyCode)
         .use(rehypeKatex)
         .use(rehypeStringify)
         .process(matterResult.content);
