@@ -591,11 +591,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
     @media (max-width: 768px) { grid-template-columns: 1fr; }
 
+    //.img-container {
+    //    display: flex;
+    //    width: 100%;
+    //    align-items: end;
+    //}
+
     .profile-img {
         width: 100%;
         border-radius: var(--radius-lg);
         object-fit: cover;
         aspect-ratio: 3/4;
+        @media (max-width: 768px) {
+            height: 16rem;
+            width: 12rem;
+            margin-left: auto;
+        }
     }
 
     .bio {
