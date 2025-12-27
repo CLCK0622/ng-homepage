@@ -4,6 +4,7 @@ date: 2025-12-28
 tags: ["Life"]
 description: "2025 年度总结（附彩蛋）"
 image: "https://images.unsplash.com/photo-1747746217798-d3fa06ebe551?q=80&w=2072&auto=format&fit=crop"
+snow: true
 ---
 
 `Build 26.0.1-beta`

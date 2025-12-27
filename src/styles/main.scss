@@ -983,3 +983,100 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     padding-top: 2rem;
     border-top: 1px dashed rgba(0, 0, 0, 0.1);
 }
+
+/* --- Pure CSS Snow Effect with Sway --- */
+
+@function multiple-box-shadow($n) {
+    $value: '#{random(2500)}px #{random(2500)}px #9ccfff';
+    @for $i from 2 through $n {
+        $value: '#{$value}, #{random(2500)}px #{random(2500)}px #9ccfff';
+    }
+    @return unquote($value);
+}
+
+$s1: 3px;  $n1: 1600;  $t1: 120s;
+$s2: 4px;  $n2: 800;  $t2: 90s;
+$s3: 5px;  $n3: 400;  $t3: 60s;
+
+$shadows-small: multiple-box-shadow($n1);
+$shadows-medium: multiple-box-shadow($n2);
+$shadows-large: multiple-box-shadow($n3);
+
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.snow-layer {
+    position: absolute;
+    top: -2000px;
+    left: 0;
+    background: transparent;
+    border-radius: 50%;
+
+    &.layer-1 {
+        width: $s1;
+        height: $s1;
+        box-shadow: $shadows-small;
+        animation: snow-fall-1 $t1 linear infinite;
+        opacity: 0.8;
+    }
+
+    &.layer-2 {
+        width: $s2;
+        height: $s2;
+        box-shadow: $shadows-medium;
+        animation: snow-fall-2 $t2 linear infinite;
+        opacity: 0.6;
+    }
+
+    &.layer-3 {
+        width: $s3;
+        height: $s3;
+        box-shadow: $shadows-large;
+        animation: snow-fall-3 $t3 linear infinite;
+        opacity: 0.4;
+    }
+
+    &::after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        box-shadow: inherit;
+        opacity: inherit;
+    }
+}
+
+@keyframes snow-fall-1 {
+    0% { transform: translate3d(0, 0, 0); }
+    25% { transform: translate3d(40px, 500px, 0); }
+    50% { transform: translate3d(0, 1000px, 0); }
+    75% { transform: translate3d(-40px, 1500px, 0); }
+    100% { transform: translate3d(0, 2000px, 0); }
+}
+
+@keyframes snow-fall-2 {
+    0% { transform: translate3d(0, 0, 0); }
+    25% { transform: translate3d(-80px, 500px, 0); }
+    50% { transform: translate3d(0, 1000px, 0); }
+    75% { transform: translate3d(80px, 1500px, 0); }
+    100% { transform: translate3d(0, 2000px, 0); }
+}
+
+@keyframes snow-fall-3 {
+    0% { transform: translate3d(0, 0, 0); }
+    25% { transform: translate3d(120px, 500px, 0); }
+    50% { transform: translate3d(0, 1000px, 0); }
+    75% { transform: translate3d(-120px, 1500px, 0); }
+    100% { transform: translate3d(0, 2000px, 0); }
+}

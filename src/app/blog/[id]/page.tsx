@@ -3,6 +3,7 @@ import {BsArrowLeft, BsCcCircle} from 'react-icons/bs';
 import Link from 'next/link';
 import Image from "next/image";
 import Comments from "@/app/components/Comments";
+import Snow from '@/app/components/Snow';
 
 export async function generateStaticParams() {
     const posts = getSortedPostsData();
@@ -20,6 +21,8 @@ export default async function Post({ params }: any) {
 
         return (
             <div className="article-container">
+                {post.snow && <Snow />}
+
                 <div className="reading-progress-bar"></div>
 
                 <div className="back-link">

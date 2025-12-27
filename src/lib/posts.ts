@@ -21,6 +21,7 @@ export interface PostData {
     description: string;
     image?: string;
     contentHtml?: string;
+    snow?: boolean;
 }
 
 export function getSortedPostsData(): PostData[] {
@@ -52,7 +53,8 @@ export function getSortedPostsData(): PostData[] {
                 tags: matterResult.data.tags || [],
                 description: matterResult.data.description || '',
                 title: matterResult.data.title || 'Untitled',
-                image: matterResult.data.image || ''
+                image: matterResult.data.image || '',
+                snow: matterResult.data.snow || false,
             } as PostData;
         });
 
@@ -104,5 +106,6 @@ export async function getPostData(id: string) {
         ...(matterResult.data as any),
         date: dateStr,
         tags: matterResult.data.tags || [],
+        snow: matterResult.data.snow || false,
     };
 }
