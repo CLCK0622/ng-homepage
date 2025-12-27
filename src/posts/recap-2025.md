@@ -83,11 +83,11 @@ snow: true
 
 既然云雾还未散去，那就先享受在雾中穿行的自由吧。
 
-在这段旅程的最后，我把这一年的切片做成了一个小的有趣的组件。拖动下面的图片，这就是我的 2025。
+在这段旅程的最后，我把这一年的切片做成了一个小的有趣的组件。拖动下面的图片，这就是我的 2025。如果你在电脑端，建议[来这里全屏看看](https://recap-2025-clck.vercel.app/)哦。
 
 <div style="text-align: center; color: #555555;"><small>⬇️加载速度可能有点慢，可以刷新一下或者等一等。</small></div>
 
-<iframe src="https://recap-2025-clck.vercel.app/" width="100%" height="1000px" style="
+<iframe src="https://recap-2025-clck.vercel.app/" width="100%" height="540px" style="
     -webkit-mask-image:
     linear-gradient(to right,  transparent, black 1%, black 99%, transparent),
     linear-gradient(to bottom, transparent, black 1%, black 99%, transparent);
