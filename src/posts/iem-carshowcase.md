@@ -3,6 +3,7 @@ title: "IEM Past Cars From Blender to Browser"
 date: 2025-11-10
 tags: ["Tech"]
 description: "Building an Interactive Model Showcase with R3F"
+image: "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=2070&auto=format&fit=crop"
 ---
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Spent almost 10 hours to work on a 3D demo for Illini Electric Motorsports&#39;s next gen website, utilizing R3F and GSAP. I would say it&#39;s a super cool effect.<a href="https://twitter.com/hashtag/3D?src=hash&amp;ref_src=twsrc%5Etfw">#3D</a> <a href="https://twitter.com/hashtag/GSAP?src=hash&amp;ref_src=twsrc%5Etfw">#GSAP</a> <a href="https://twitter.com/hashtag/Threejs?src=hash&amp;ref_src=twsrc%5Etfw">#Threejs</a> <a href="https://twitter.com/hashtag/IEM?src=hash&amp;ref_src=twsrc%5Etfw">#IEM</a> <a href="https://twitter.com/hashtag/BuildInPublic?src=hash&amp;ref_src=twsrc%5Etfw">#BuildInPublic</a> <a href="https://t.co/wGoy5WNp2h">pic.twitter.com/wGoy5WNp2h</a></p>&mdash; Kevin Zhong (@CLCKKKKK) <a href="https://twitter.com/CLCKKKKK/status/1987991650350534775?ref_src=twsrc%5Etfw">November 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

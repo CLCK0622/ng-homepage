@@ -36,6 +36,7 @@ export default function RootLayout({
                 integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
                 crossOrigin="anonymous"
             />
+            <script defer src="https://cloud.umami.is/script.js" data-website-id="1b934541-1dd5-4860-afce-1d5e0a6c9ad0"></script>
             <style>
                 @import url(https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+SC:wght@200..900&display=swap);
             </style>
