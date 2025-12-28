@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
             title: post.title,
             description: post.description,
             openGraph: {
-                title: post.title,
+                title: `${post.title} | CLCK's Site`,
                 description: post.description,
                 type: 'article',
                 publishedTime: post.date,
