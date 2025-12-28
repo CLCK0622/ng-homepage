@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import Comments from "@/app/components/Comments";
 import Snow from '@/app/components/Snow';
+import {Metadata} from "next";
 
 export async function generateStaticParams() {
     const posts = getSortedPostsData();
