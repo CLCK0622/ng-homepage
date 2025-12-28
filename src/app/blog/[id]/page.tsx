@@ -14,11 +14,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-    const id = decodeURIComponent(params.id);
+    const { id: rawId } = await params;
+    const id = decodeURIComponent(rawId);
 
     try {
         const post = await getPostData(id);
-
         return {
             title: post.title,
             description: post.description,
