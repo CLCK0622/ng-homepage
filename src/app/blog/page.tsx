@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs';
 import { getSortedPostsData } from '@/lib/posts';
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: 'Writing',
+    description: 'Thoughts on code, design, society, and the spaces in between.',
+};
 
 export default function Blog() {
     const allPosts = getSortedPostsData();

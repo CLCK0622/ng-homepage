@@ -10,7 +10,10 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-main' });
 const notoSansSC = Noto_Sans_SC({ subsets: ['latin'], variable: '--font-cn', weight: ['400', '500', '700'] });
 
 export const metadata: Metadata = {
-    title: SITE_TITLE,
+    title: {
+        template: `%s | ${SITE_TITLE}`,
+        default: SITE_TITLE,
+    },
     description: SITE_DESCRIPTION,
     metadataBase: new URL(SITE_URL),
     alternates: {
@@ -19,6 +22,18 @@ export const metadata: Metadata = {
                 { url: '/rss.xml', title: 'RSS Feed' },
             ],
         },
+    },
+    openGraph: {
+        siteName: SITE_TITLE,
+        type: 'website',
+        locale: 'en_US',
+        url: './',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+        creator: '@CLCKKKKK',
     },
 };
 

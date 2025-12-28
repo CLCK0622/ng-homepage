@@ -12,6 +12,37 @@ export async function generateStaticParams() {
     }));
 }
 
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+    const id = decodeURIComponent(params.id);
+
+    try {
+        const post = await getPostData(id);
+
+        return {
+            title: post.title,
+            description: post.description,
+            openGraph: {
+                title: post.title,
+                description: post.description,
+                type: 'article',
+                publishedTime: post.date,
+                authors: ['Kevin Zhong'],
+                images: post.image ? [
+                    {
+                        url: post.image,
+                        alt: post.title,
+                    }
+                ] : [],
+            },
+        };
+    } catch (error) {
+        return {
+            title: 'Post Not Found',
+            description: 'The requested article could not be found.',
+        };
+    }
+}
+
 export default async function Post({ params }: any) {
     const realParams = await params;
     const id = decodeURIComponent(realParams.id);

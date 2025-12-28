@@ -6,6 +6,12 @@ import { SiBilibili, SiZhihu } from 'react-icons/si';
 import Image from "next/image";
 import {FaMastodon, FaSnapchat, FaUnsplash, FaXTwitter} from "react-icons/fa6";
 import {MdAttachEmail} from "react-icons/md";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: 'About Me',
+    description: 'Developer, Photographer, Storyteller.',
+};
 
 export default function About() {
     return (

@@ -1,19 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaStar, FaCodeBranch, FaGithub } from "react-icons/fa";
+import {Metadata} from "next";
 
-// 定义项目接口
+export const metadata: Metadata = {
+    title: 'Portfolio',
+    description: 'Interesting ideas on my keyboard.',
+};
+
 interface ProjectConfig {
     id: number;
     title: string;
     category: string;
-    platform?: 'github' | 'web' | string; // 新增 platform 字段
-    href?: string;       // 可选，不填则用 GH 链接
-    image?: string;      // 可选，不填则用 GH 头像或默认图
-    description?: string;// 可选，不填则用 GH 简介
+    platform?: 'github' | 'web' | string;
+    href?: string;
+    image?: string;
+    description?: string;
 }
 
-// 你的原始配置
 const PROJECTS_CONFIG: ProjectConfig[] = [
     {
         id: 1,
