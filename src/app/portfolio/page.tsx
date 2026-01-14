@@ -104,7 +104,7 @@ const PROJECTS_CONFIG: ProjectConfig[] = [
         category: 'Product',
         platform: 'web',
         href: 'https://github.com/MuseDeck',
-        image: 'https://private-user-images.githubusercontent.com/36215258/521730316-cd369ad2-dfff-4d23-bf07-0b4f9f4010e2.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ3NDU1NTEsIm5iZiI6MTc2NDc0NTI1MSwicGF0aCI6Ii8zNjIxNTI1OC81MjE3MzAzMTYtY2QzNjlhZDItZGZmZi00ZDIzLWJmMDctMGI0ZjlmNDAxMGUyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjAzVDA3MDA1MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTVmYTllNTE4NDQ4ZmQ2ZTRiN2JmM2ZjMTYwZTNkZGQxOGE4YjYzZGJhY2IwMjdmODhiOGJlZjQ3M2JkYjI2ZTcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ujxj7VRpSIBO79CQjYhAQOgKgq9hD9_b9FeumxrwlkM',
+        image: 'https://github.com/user-attachments/assets/cd369ad2-dfff-4d23-bf07-0b4f9f4010e2',
         description: 'An open-source, AI-native knowledge display system designed to turn your scattered information into a seamless, non-intrusive stream of inspiration.'
     },
 ];
