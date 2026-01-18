@@ -28,7 +28,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'private-user-images.githubusercontent.com',
+                hostname: 'github.com',
             },
         ],
     },
