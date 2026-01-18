@@ -3,6 +3,7 @@ title: "警惕“康波寒冬”下的国运错觉"
 date: 2026-01-18
 tags: ["Misc"]
 description: "我们正身处康波周期的“极夜”。为何 DeepSeek 的突围只是“生存权”的防守？美国如何通过 AI 机器人与美元稳定币重塑霸权？警惕“弯道快”的错觉，在下一轮科技爆发的直道上，美国或将再次拉开代差。"
+image: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 snow: true
 ---
 
