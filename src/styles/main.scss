@@ -699,9 +699,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* --- Markdown Content Styles (Typography) --- */
 .markdown-body {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     line-height: 1.5;
-    color: #333;
+    //color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-weight: 450;
+    font-optical-sizing: auto;
 
     p {
         margin-top: 1.25rem;
