@@ -3,7 +3,7 @@ title: "Setting Up My New MacBook Pro"
 date: 2026-02-01
 tags: ["Tech"]
 description: "The essential software stack and display optimizations that powers my new M4 Pro MacBook Pro for a peak 2026 workflow."
-image: "https://github.com/CLCK0622/images/blob/main/newmbp.png?raw=true"
+image: "https://github.com/CLCK0622/images/blob/main/newmbp-cover.png?raw=true"
 ---
 
 There’s nothing quite like the feeling of unboxing a new Mac (specifically the feeling of peeling off any Apple device). While the hardware is undeniably a beast, the real magic happens in the software layer.
