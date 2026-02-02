@@ -719,7 +719,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
             justify-content: center;
 
             .featured-image {
-                object-fit: contain;
+                object-fit: cover;
 
                 width: 100% !important;
                 height: 100% !important;
