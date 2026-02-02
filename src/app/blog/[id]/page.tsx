@@ -72,6 +72,19 @@ export default async function Post({ params }: any) {
                     </div>
 
                     <h1>{post.title}</h1>
+
+                    {post.image && (
+                        <div className="post-cover">
+                            <Image
+                                src={post.image}
+                                alt={post.title}
+                                fill
+                                priority
+                                sizes="(max-width: 1200px) 100vw, 1200px"
+                                className="featured-image"
+                            />
+                        </div>
+                    )}
                 </header>
 
                 <article
