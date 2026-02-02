@@ -35,6 +35,18 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
                     }
                 ] : [],
             },
+            twitter: {
+                card: 'summary_large_image',
+                title: `${post.title} | CLCK's Site`,
+                description: post.description,
+                images: post.image ? [
+                    {
+                        url: post.image,
+                        alt: post.title,
+                    }
+                ] : [],
+                creator: '@CLCKKKKK',
+            },
         };
     } catch (error) {
         return {
