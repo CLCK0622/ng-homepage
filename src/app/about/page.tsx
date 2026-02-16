@@ -4,7 +4,7 @@ import {
 } from 'react-icons/fa';
 import { SiBilibili, SiZhihu } from 'react-icons/si';
 import Image from "next/image";
-import {FaMastodon, FaSnapchat, FaUnsplash, FaXTwitter} from "react-icons/fa6";
+import {FaMastodon, FaSnapchat, FaThreads, FaUnsplash, FaXTwitter} from "react-icons/fa6";
 import {MdAttachEmail} from "react-icons/md";
 import {Metadata} from "next";
 
@@ -62,8 +62,8 @@ export default function About() {
                             <a href="https://www.snapchat.com/@clck0622" className="connect-link">
                                 <FaSnapchatGhost className="icon" style={{color: '#fffc00'}}/> <span>Snapchat</span>
                             </a>
-                            <a href="mailto:zhongyi070622@gmail.com" className="connect-link">
-                                <MdAttachEmail className="icon" style={{color: '#7c7c7c'}}/> <span>Email</span>
+                            <a href="https://www.threads.com/@clck0622" className="connect-link">
+                                <FaThreads className="icon" style={{color: '#0a0a0a'}}/> <span>Threads</span>
                             </a>
                         </div>
                     </div>

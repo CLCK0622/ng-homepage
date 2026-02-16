@@ -71,10 +71,10 @@ image: "https://images.unsplash.com/photo-1738834909158-970e8853052c"
 为了让这台 Mac Mini 成为真正的“Headless Server”（无头服务器）：
 
 * 开机自启：配置了 Automator 脚本，开机自动登录账户并启动 UTM 虚拟机组。
-* **备用通道**：除了 Cloudflare Tunnel 用于 Web 服务，我还配置了 SSH 和 macOS 自带的屏幕共享 (VNC)，方便在局域网内进行底层维护。
+* **备用通道**：除了 Cloudflare Tunnel 用于 Web 服务，我还配置了 SSH 和 macOS 自带的屏幕共享 (VNC)，方便在局域网内进行底层维护，并安装 Tailscale 用作外网远程调试通道。
 
 ## 总结
 
 通过这套配置，我将一台消费级的 Mac Mini 改造成了一个拥有 NAS 功能的高密度微型数据中心。数据在内网高速流转，服务通过 Cloudflare 安全地暴露给公网，兼顾了性能、安全与便利性。
 
-接下来，只需要按需在某个 VM 上部署你的服务即可！比如部署一个 Clawd Bot 实例……
+如果你要看怎么样给每个 VM 配置网络和 SSH 服务，请移步我的[新文章](./cfd-config)。接下来，只需要按需在某个 VM 上部署你想要的服务即可！比如一个 OpenClaw 实例……
