@@ -84,7 +84,7 @@ sudo chmod 600 /etc/cloudflared/config.yml 2>/dev/null || true
 sudo vim /etc/cloudflared/config.yml
 ```
 
-**填入以下内容（注意替换 UUID）：**
+填入以下内容（注意替换 UUID）：
 
 ```yaml
 tunnel: <Tunnel-UUID>
@@ -127,7 +127,7 @@ sudo systemctl status cloudflared
 
 编辑 `~/.ssh/config`：
 
-```ssh
+```bash
 Host ***.clckkkkk.site
     User <你的VM用户名>
     ProxyCommand /opt/homebrew/bin/cloudflared access ssh --hostname %h
