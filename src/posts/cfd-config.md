@@ -101,7 +101,7 @@ ingress:
   # 如果后续有需要添加网站、数据库等开放的端口，搭配 nginx 转发后在这里绑定域名即可
 ```
 
-**注意：`credentials-file` 必须指向 `/etc/cloudflared/` 下的 JSON 文件路径。**
+注意：`credentials-file` 必须指向 `/etc/cloudflared/` 下的 JSON 文件路径。
 
 ## 5. 注册并启动系统服务
 
@@ -133,7 +133,7 @@ Host ***.clckkkkk.site
     ProxyCommand /opt/homebrew/bin/cloudflared access ssh --hostname %h
 ```
 
-**连接测试：**
+连接测试：
 
 ```bash
 ssh <user>@***.clckkkkk.site
