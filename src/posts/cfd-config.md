@@ -1,9 +1,9 @@
 ---
-title: "VM 初始化与独立 Cloudflare Tunnel 部署指南"
+title: "VM 初始化与 Cloudflare Tunnel 部署指南"
 date: 2026-02-15
 tags: ["Tech"]
-image: ""
-description: ""
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+description: "本文记录了初始化 Linux 虚拟机身份的标准化流程，并详细说明了如何把 Cloudflare Tunnel 部署为系统服务以实现稳定的公网 SSH 访问。"
 ---
 
 [前文](./mac-vm)聊了一下怎么用 Mac 配置一组虚拟机集群，这里再写一下一台全新（或重置后）的 Linux 虚拟机上，从修复主机名、重置 SSH 密钥，到配置 Cloudflare Tunnel 为系统服务的完整标准流程，也供我自己参考。
