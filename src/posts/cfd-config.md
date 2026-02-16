@@ -38,7 +38,6 @@ sudo systemctl restart ssh
 # 下载并安装 cloudflared (以 Ubuntu 为例)
 curl -L --output cloudflared.deb [https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb](https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb)
 sudo dpkg -i cloudflared.deb
-
 ```
 
 ## 3. 隧道创建与授权
@@ -57,7 +56,6 @@ cloudflared tunnel create tunnel-vm1
 # 3. 配置 DNS 路由
 # 将我要用的二级域名 ***.clckkkkk.site 绑定到该隧道（看你自己）
 cloudflared tunnel route dns tunnel-vm1 ***.clckkkkk.site
-
 ```
 
 此时，`~/.cloudflared/` 目录下应该包含 `cert.pem` 和 `<UUID>.json` 文件。
