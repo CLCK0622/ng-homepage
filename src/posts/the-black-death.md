@@ -3,7 +3,7 @@ title: "HIST 100 Week 3 - The Black Death: What We Know Now"
 date: 2026-02-04
 tags: ["Misc"]
 description: "Uncovering the true scale, causes, and consequences of the medieval pandemic through modern science and historical records."
-image: "https://images.unsplash.com/photo-1538176242309-86fcbec5d7c9?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+image: "https://images.unsplash.com/photo-1538176242309-86fcbec5d7c9"
 ---
 
 For centuries, the narrative of the Black Death was fairly straightforward: it was a bubonic plague carried by rats that swept through Europe in the mid-14th century. However, recent breakthroughs in DNA analysis, archaeology, and climate science have radically transformed this view.
