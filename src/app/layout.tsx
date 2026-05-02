@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter, Noto_Sans_SC } from 'next/font/google';
+import { Noto_Sans_SC } from 'next/font/google';
 import '../styles/main.scss';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { SITE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-main' });
 const notoSansSC = Noto_Sans_SC({ subsets: ['latin'], variable: '--font-cn', weight: ['400', '500', '700'] });
 
 export const metadata: Metadata = {
@@ -43,7 +42,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className={`${inter.variable} ${notoSansSC.variable}`}>
+        <html lang="en" className={`${notoSansSC.variable}`}>
         <head>
             <link
                 rel="stylesheet"
@@ -52,6 +51,10 @@ export default function RootLayout({
                 crossOrigin="anonymous"
             />
             <script defer src="https://cloud.umami.is/script.js" data-website-id="1b934541-1dd5-4860-afce-1d5e0a6c9ad0"></script>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&display=swap"
+            />
             <style>
                 @import url(https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Noto+Serif+SC:wght@200..900&display=swap);
             </style>

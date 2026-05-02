@@ -84,6 +84,9 @@ export default async function Post({ params }: any) {
                     </div>
 
                     <h1>{post.title}</h1>
+                    {post.description && (
+                        <p className="post-description">{post.description}</p>
+                    )}
 
                     {post.image && (
                         <div className="post-cover">

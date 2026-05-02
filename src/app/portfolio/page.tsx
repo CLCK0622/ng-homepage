@@ -21,6 +21,24 @@ interface ProjectConfig {
 const PROJECTS_CONFIG: ProjectConfig[] = [
     {
         id: 1,
+        title: 'Aero-Optics',
+        category: 'Hackathon',
+        platform: 'web',
+        href: 'https://devpost.com/software/grey-squad-154wq9',
+        image: 'https://img.youtube.com/vi/B0x1vyQ9BTI/maxresdefault.jpg',
+        description: 'An automated lens polishing system using dual AMD LeRobot arms with pneumatic control, vision guidance, and an innovative vacuum release mechanism.'
+    },
+    {
+        id: 2,
+        title: 'Vibeathon',
+        category: 'Hackathon',
+        platform: 'web',
+        href: 'https://devpost.com/software/vibeathon',
+        image: 'https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/004/385/740/datas/gallery.jpg',
+        description: 'A multi-agent social simulation that runs 50 LLM-powered personas through a virtual hackathon, generating project proposals through structured collaboration.'
+    },
+    {
+        id: 3,
         title: '11ty Serene',
         category: 'Theme',
         platform: 'github',
@@ -29,7 +47,7 @@ const PROJECTS_CONFIG: ProjectConfig[] = [
         description: 'A minimal theme for a landing page and an integrated blog. Built with 11ty and Sass.'
     },
     {
-        id: 2,
+        id: 4,
         title: 'Eventual',
         category: 'iOS App',
         platform: 'github',
@@ -37,7 +55,7 @@ const PROJECTS_CONFIG: ProjectConfig[] = [
         image: 'https://s2.loli.net/2025/12/03/O7VnfaTHk2DcS96.png'
     },
     {
-        id: 3,
+        id: 5,
         title: 'IEM Website',
         category: 'Website',
         platform: 'github',
@@ -45,25 +63,16 @@ const PROJECTS_CONFIG: ProjectConfig[] = [
         description: "Next generation website for Illini Electric Motorsports RSO with Vite, R3F, shadcn/ui, and Tailwind CSS."
     },
     {
-        id: 4,
-        title: 'TensorFlow MobileNet Demo',
-        category: 'Website',
-        platform: 'github',
-        href: 'https://github.com/CLCK0622/TensorFlow-MobileNet-Starter-Program',
-        image: 'https://user-images.githubusercontent.com/36215258/216369517-4b207d1b-5fa6-4e7d-84a2-451063a622e1.png',
-        description: 'A starter AI program (online demo) using TensorFlow MobileNet, which features AI image processing and classification.'
-    },
-    {
-        id: 5,
-        title: 'CNFRC Community',
-        category: 'Organization',
-        platform: 'web',
-        href: 'https://github.com/FRC-China',
-        image: 'https://raw.githubusercontent.com/FRC-China/properties/refs/heads/main/social%20image.PNG',
-        description: 'The first ever student-led non-profit organization for FRC teams based in China.'
-    },
-    {
         id: 6,
+        title: 'A3A Protocol',
+        category: 'Hackathon',
+        platform: 'web',
+        href: 'https://ethglobal.com/showcase/a3a-protocol-e8rcx',
+        image: 'https://ethglobal.b-cdn.net/projects/e8rcx/screenshots/n22kq/default.jpg',
+        description: 'Secure daily AI-to-AI communication and payments under Web3 for Fiducia Agents. Built at ETHOnline 2025.'
+    },
+    {
+        id: 7,
         title: 'CNFRC Wiki',
         category: 'Website',
         platform: 'github',
@@ -72,7 +81,7 @@ const PROJECTS_CONFIG: ProjectConfig[] = [
         description: 'The Mandarin wikipedia for CNFRC Community.'
     },
     {
-        id: 7,
+        id: 8,
         title: 'Shanghai High School Knowledge',
         category: 'Website',
         platform: 'github',
@@ -81,31 +90,22 @@ const PROJECTS_CONFIG: ProjectConfig[] = [
         description: 'Knowledge sharing platform for students in Shanghai standard senior high school.'
     },
     {
-        id: 8,
+        id: 9,
+        title: 'TensorFlow MobileNet Demo',
+        category: 'Website',
+        platform: 'github',
+        href: 'https://github.com/CLCK0622/TensorFlow-MobileNet-Starter-Program',
+        image: 'https://user-images.githubusercontent.com/36215258/216369517-4b207d1b-5fa6-4e7d-84a2-451063a622e1.png',
+        description: 'A starter AI program (online demo) using TensorFlow MobileNet, which features AI image processing and classification.'
+    },
+    {
+        id: 10,
         title: 'Hackintosh OpenCore EFI',
         category: 'Hackintosh',
         platform: 'github',
         href: 'https://github.com/CLCK0622/ASUS-Z490P-10700k-6600xt_Hackintosh-OpenCore-EFI',
         image: 'https://i.redd.it/e6q067upouvc1.png',
         description: 'An OpenCore EFI for: ASUS Prime Z490P + i7 i0700k + AMD RX 6600 XT + RTL 8111 + AX 200.'
-    },
-    {
-        id: 9,
-        title: 'SyncUP',
-        category: 'Website',
-        platform: 'github',
-        href: 'https://github.com/CLCK0622/syncup',
-        image: 'https://s2.loli.net/2025/12/03/7ZTUNPCGj964dk3.png',
-        description: 'SyncUP finds when your free time overlaps with others and suggests activities you can do together.'
-    },
-    {
-        id: 10,
-        title: 'MuseDeck',
-        category: 'Product',
-        platform: 'web',
-        href: 'https://github.com/MuseDeck',
-        image: 'https://github.com/user-attachments/assets/cd369ad2-dfff-4d23-bf07-0b4f9f4010e2',
-        description: 'An open-source, AI-native knowledge display system designed to turn your scattered information into a seamless, non-intrusive stream of inspiration.'
     },
 ];
 

@@ -30,6 +30,22 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'github.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'd112y698adiu2z.cloudfront.net',
+            },
+            {
+                protocol: 'https',
+                hostname: 'img.youtube.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'ethglobal.b-cdn.net',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+            },
         ],
     },
 }

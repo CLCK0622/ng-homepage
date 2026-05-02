@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FaHome, FaPenNib, FaUser, FaThLarge } from 'react-icons/fa';
+import { FaHome, FaPenNib, FaUser, FaThLarge, FaCamera } from 'react-icons/fa';
 import {useEffect, useState} from "react";
 
 export default function Navbar() {
@@ -19,6 +19,7 @@ export default function Navbar() {
     const links = [
         { href: '/', label: 'Home', icon: <FaHome /> },
         { href: '/portfolio', label: 'Portfolio', icon: <FaThLarge /> },
+        { href: '/gallery', label: 'Gallery', icon: <FaCamera /> },
         { href: '/blog', label: 'Blog', icon: <FaPenNib /> },
         { href: '/about', label: 'About', icon: <FaUser /> },
     ];
@@ -37,7 +38,7 @@ export default function Navbar() {
             <nav className="navbar">
                 <Link href="/" className="logo">
                     <span className="at">@</span>
-                    <span className="id">CLCKKKKK</span>
+                    <span className="id">CLCK</span>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -54,7 +55,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="nav-action">
-                    <button onClick={() => window.location.href = 'mailto:zhongyi070622@gmail.com'}>
+                    <button onClick={() => window.location.href = 'mailto:kevin.zhong@pivothire.tech'}>
                         Get in touch
                     </button>
                 </div>
