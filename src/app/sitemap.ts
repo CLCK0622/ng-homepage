@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routes = [
         '',
         '/portfolio',
+        '/gallery',
         '/blog',
         '/about',
     ].map((route) => ({
