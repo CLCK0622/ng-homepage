@@ -14,7 +14,7 @@ image: "https://github.com/CLCK0622/images/blob/main/superpowers-loop-engineerin
 
 loop engineering 和 orchestration 的一个具体落地实例。
 
-![Superpowers 技能触发流程图：claude code 会话启动后由 SessionStart hook 注入 using-superpowers 元技能，判断是否有 skill 适用，再加载技能并按指令执行](https://github.com/CLCK0622/images/blob/main/superpowers-loop-engineering-superpowers.png?raw=true)
+![Superpowers 技能触发流程图：Claude Code 会话启动后由 SessionStart hook 注入 using-superpowers 元技能，判断是否有 skill 适用，再加载技能并按指令执行](https://github.com/CLCK0622/images/blob/main/superpowers-loop-engineering-superpowers.png?raw=true)
 
 也有诸多不足之处，在我个人体验过程中发现诸如 token 用量过大、大炮打蚊子等问题，都是 superpowers 为了不遗漏而做出的取舍。
 
