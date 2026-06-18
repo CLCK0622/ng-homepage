@@ -137,7 +137,7 @@ Anthropic 提出的六大可组合 workflow
 
 1. 独立并行：每个 agent 在各自 worktree 工作，最终产出 PR 给主 agent，最简单
 2. 分裂合并：用多个 subagent 区分文件范围同步加速做一个任务
-3. 五大关键要素：worktree、数据库、隔离的环境/端口、独立 [CLAUDE.md](http://CLAUDE.md)、合并策略
+3. 五大关键要素：worktree、数据库、隔离的环境/端口、独立 CLAUDE.md、合并策略
 
 局限性：
 
