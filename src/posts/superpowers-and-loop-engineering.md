@@ -85,21 +85,21 @@ Loop Engineering 的目标不是无人值守，而是可控地减少人类重复
 解决了不同 agent 之间协作的问题，目前有三种 cc 原生的方式：
 
 1. Subagents
-   1. 会话中启动完整、上下文干净的子 agent，隔离上下文，接收主 agent 的输入，返回结果
+   1. 会话中启动完整、上下文干净的子 agent，黑箱系统，接收主 agent 的输入，返回结果
    2. 有 Explore、Plan、general-purpose 等内置 agent
    3. 核心应用场景：隔离高开销操作、独立调研、串行依赖执行（类似 plan）、做代码审查等
    4. 主要是为了剥离关联性较低的大节点，避免快速消耗上下文窗口导致主 agent 注意力消散
 2. Agent Teams
-   1. Claude Code v2.1.32 / 2026-02-05 引入的 research preview
+   1. 2026.2 新的实验性功能
    2. 每个 agent 都是独立的 cc 实例，独立上下文窗口
    3. 所有 agent 共享同一个任务列表，自动 claim 下一个节点的任务
    4. 用文件锁防止竞态
 3. Dynamic Workflows
    1. 与 Opus 4.8 一起发布
-   2. claude 写 js 编排脚本，脚本协调 agents，具体读写文件、跑命令还是由 agents 执行，上下文窗口主要保存答案
+   2. claude 只写 js 编排脚本，上下文窗口只保存答案
    3. 解决三大问题：laziness、self-preferential bias、goal drift
-   4. 最多 16 个并发、最多 1000 个总数，同一 session 内 agent 支持 resume；退出 cc 之后是 fresh start
-   5. Best Practice：Bun 的移植 - 公开报道里有 11 天、75 万行这类数字，但口径不完全一致，我会把它当作案例讲，不当作官方数字讲。真正值得看的是它的模式：许多小 agent 并行做 fix，再用独立 reviewer 做对抗审查
+   4. 最多 16 个并发、最多 1000 个总数，agent 支持断点恢复
+   5. Best Practice：Bun 的移植 - 由许多个一个 agent 带两个 reviewer 的组合并发工作，11 天合并 75 万行代码
 
 什么时候用哪个，我现在的判断比较简单：
 
@@ -162,7 +162,7 @@ subagent 会开独立上下文，Agent Teams 是多个 cc 实例，Dynamic Workf
 
 也正是因为这些东西太容易烧 token，才会有一类省 token / 管控用量的需求。
 
-比如 RTK（https://www.rtk-ai.app/）这类压缩命令输出、减少 CLI 噪声的产品，还有 ccusage 这种看 agent CLI token 和成本的工具。
+比如 RTK（[https://www.rtk-ai.app/](https://www.rtk-ai.app/)）这类压缩命令输出、减少 CLI 噪声的产品，还有 ccusage 这种看 agent CLI token 和成本的工具。
 
 我的理解是，省 token 的核心不是抠 prompt，而是减少无效上下文、减少无效循环，让贵模型只处理真正值得它处理的部分。
 
@@ -186,14 +186,4 @@ Superpowers 不一定是效果最好的，但是是理解这些模式的最佳�
 
 ![厚 harness 到薄 harness 的光谱图：从 LangGraph、Superpowers 到 Claude Code、模型内化一切的理想目标，配上模型变强后对应 harness 组件应被删除的观点](https://github.com/CLCK0622/images/blob/main/superpowers-loop-engineering-summary-2.png?raw=true)
 
-我现在更愿意把它理解成一个生态趋势：每一代基模变强，薄 harness 能吃掉一部分厚 harness 的能力；社区又会把新的经验继续沉淀成 skills、plugins、workflow，二者互相推动。
-
-但具体到 Superpowers，公开来源能确认的是它进入了 Claude Code 插件生态；至于它和模型训练、官方方法论之间的关系，我不会把没有一手来源的推断当事实讲。
-
-最后给三个明天就能试的 action items：
-
-1. 给自己常用仓库加一段最小流程纪律：先澄清目标、先 plan、实现前列 tests、结束前跑验证
-
-2. 下次复杂任务只加一个 subagent：让它独立做 code review、查文档、读日志，只把摘要带回主会话
-
-3. 给任何 loop 任务先写停止条件：最多几轮、最多多少 token、哪些 checkpoint 要人工确认、什么结果算完成
+借助后训练，每一代基模的进化，都纳入了社区优秀 harness 的特性，薄 harness 不断从厚 harness 学习，社区再不断补充厚 harness，二者共生进化，这也是 anthropic 保留并且将 superpowers 社区作为其半官方用法之一的原因。
