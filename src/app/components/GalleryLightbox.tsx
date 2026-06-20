@@ -209,7 +209,7 @@ export default function GalleryLightbox({ photos, initialIndex, onClose }: Props
                                 className={`lightbox-thumb ${i === index ? 'active' : ''}`}
                                 onClick={() => { setIndex(i); setImgLoaded(false); }}
                             >
-                                <Image loader={unsplashLoader} src={p.urls.thumb} alt="" width={80} height={54} />
+                                <Image loader={unsplashLoader} src={p.urls.raw} alt="" width={80} height={54} quality={80} />
                             </button>
                         ))}
                     </div>

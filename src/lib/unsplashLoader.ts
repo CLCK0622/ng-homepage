@@ -18,6 +18,10 @@ export default function unsplashLoader({ src, width, quality }: ImageLoaderProps
     const url = new URL(src);
     url.searchParams.set('w', String(width));
     url.searchParams.set('q', String(quality ?? 75));
+    // imgix prioritizes an explicit `fm` over `auto=format`, so a base URL that
+    // already pins `fm=jpg` (e.g. Unsplash's `urls.small`/`urls.thumb`) would
+    // never negotiate AVIF/WebP. Drop it so `auto=format` can take effect.
+    url.searchParams.delete('fm');
     // Let Unsplash's imgix pick the best modern format (AVIF/WebP) per browser.
     url.searchParams.set('auto', 'format');
     return url.toString();

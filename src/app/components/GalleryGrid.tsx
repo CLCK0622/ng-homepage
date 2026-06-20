@@ -56,11 +56,12 @@ export default function GalleryGrid({ initialPhotos }: { initialPhotos: PhotoDat
                     >
                         <Image
                             loader={unsplashLoader}
-                            src={photo.urls.small}
+                            src={photo.urls.raw}
                             alt={photo.alt_description || photo.description || 'Photo'}
                             width={photo.width}
                             height={photo.height}
                             sizes="(max-width: 768px) 33vw, 20vw"
+                            quality={80}
                         />
                     </button>
                 ))}
