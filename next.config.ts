@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+        // Cache optimized images for 31 days instead of Vercel's short default,
+        // so any remaining next/image usage across the site (blog, portfolio,
+        // home) re-optimizes far less often. The gallery itself bypasses Vercel
+        // Image Optimization via a custom Unsplash loader (see src/lib/unsplashLoader.ts).
+        minimumCacheTTL: 2678400,
         remotePatterns: [
             {
                 protocol: 'https',
