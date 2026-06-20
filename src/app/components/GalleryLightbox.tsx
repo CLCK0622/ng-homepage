@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
+import unsplashLoader from '@/lib/unsplashLoader';
 import { IoClose } from 'react-icons/io5';
 import { FiExternalLink } from 'react-icons/fi';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
@@ -106,7 +107,9 @@ export default function GalleryLightbox({ photos, initialIndex, onClose }: Props
         return () => el.removeEventListener('scroll', updateScrollEdges);
     }, [updateScrollEdges]);
 
-    const fullUrl = current.urls.raw + '&w=2400&q=85&fm=jpg';
+    // Serve the full-size image straight from Unsplash's CDN via the custom
+    // loader (which appends w/q/auto=format); no Vercel Image Optimization.
+    const fullUrl = current.urls.raw;
 
     return (
         <div className="lightbox-overlay" onClick={onClose}>
@@ -127,11 +130,13 @@ export default function GalleryLightbox({ photos, initialIndex, onClose }: Props
                             )}
                             <Image
                                 key={current.id}
+                                loader={unsplashLoader}
                                 src={fullUrl}
                                 alt={current.alt_description || 'Photo'}
                                 width={current.width}
                                 height={current.height}
                                 sizes="75vw"
+                                quality={85}
                                 priority
                                 onLoad={() => setImgLoaded(true)}
                                 style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.3s' }}
@@ -204,7 +209,7 @@ export default function GalleryLightbox({ photos, initialIndex, onClose }: Props
                                 className={`lightbox-thumb ${i === index ? 'active' : ''}`}
                                 onClick={() => { setIndex(i); setImgLoaded(false); }}
                             >
-                                <Image src={p.urls.thumb} alt="" width={80} height={54} />
+                                <Image loader={unsplashLoader} src={p.urls.thumb} alt="" width={80} height={54} />
                             </button>
                         ))}
                     </div>

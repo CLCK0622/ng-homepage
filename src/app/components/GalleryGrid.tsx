@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import GalleryLightbox, { type PhotoData } from './GalleryLightbox';
+import unsplashLoader from '@/lib/unsplashLoader';
 
 export default function GalleryGrid({ initialPhotos }: { initialPhotos: PhotoData[] }) {
     const [photos, setPhotos] = useState<PhotoData[]>(initialPhotos);
@@ -54,6 +55,7 @@ export default function GalleryGrid({ initialPhotos }: { initialPhotos: PhotoDat
                         onClick={() => setActiveIndex(i)}
                     >
                         <Image
+                            loader={unsplashLoader}
                             src={photo.urls.small}
                             alt={photo.alt_description || photo.description || 'Photo'}
                             width={photo.width}
