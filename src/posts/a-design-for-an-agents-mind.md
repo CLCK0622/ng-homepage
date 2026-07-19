@@ -2,15 +2,15 @@
 title: "Richard Sutton：如何设计一个智能体的心智"
 date: "2026-07-19"
 tags: ["Tech"]
-description: "解读 Richard Sutton 的演讲《A Design for an Agent's Mind》：与其给智能体预装大量知识，不如设计一套能持续发现知识、形成技能并利用知识规划的心智——OaK（Options and Knowledge）架构。"
+description: "解读 Richard Sutton 的演讲《AI 的第一性原理：从经验培育超级智能》（First Principles of AI: Growing Superintelligence from Experience with Reinforcement Learning）：与其给智能体预装大量知识，不如设计一套能持续发现知识、形成技能并利用知识规划的心智——OaK（Options and Knowledge）架构。"
 image: "https://images.unsplash.com/photo-1514621166532-aa7eb1a3a2f4?q=80&w=2400&h=1350&fit=crop&crop=entropy&auto=format"
 ---
 
-*A Design for an Agent's Mind*
+*First Principles of AI: Growing Superintelligence from Experience with Reinforcement Learning*
 
 现在的大语言模型很像一个在出发前读完了半座图书馆的人。它见过海量文字，善于从上下文里调取模式，也能在对话中表现出惊人的应变能力。可当一次任务结束，刚才发生的事通常不会沉淀为它自己的长期经验。模型下次醒来，权重还是那组权重，成长主要发生在下一轮训练；它正在经历的生活很少留下持久改变。
 
-Richard Sutton 在《A Design for an Agent's Mind》里讨论的，恰好是这条边界。他想设计一种能在真实世界里持续长出概念、技能和预测的心智。演讲提出的 OaK（Options and Knowledge）架构只是答案的技术轮廓，背后更值得讨论的，其实是 Sutton 对当下 AI 路线的判断：如果智能只在训练时形成，部署后主要负责调用已有能力，那么我们得到的更像一件出厂成品，缺少生活带来的持续改变。
+Richard Sutton 在《First Principles of AI: Growing Superintelligence from Experience with Reinforcement Learning》（AI 的第一性原理：从经验培育超级智能）这场演讲里讨论的，恰好是这条边界。他想设计一种能在真实世界里持续长出概念、技能和预测的心智。演讲提出的 OaK（Options and Knowledge）架构只是答案的技术轮廓，背后更值得讨论的，其实是 Sutton 对当下 AI 路线的判断：如果智能只在训练时形成，部署后主要负责调用已有能力，那么我们得到的更像一件出厂成品，缺少生活带来的持续改变。
 
 ## LLM 把“苦涩的教训”学到了一半
 
