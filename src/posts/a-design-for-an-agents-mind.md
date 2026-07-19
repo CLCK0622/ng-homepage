@@ -3,6 +3,7 @@ title: "Richard Sutton：如何设计一个智能体的心智"
 date: "2026-07-19"
 tags: ["Tech"]
 description: "解读 Richard Sutton 的演讲《A Design for an Agent's Mind》：与其给智能体预装大量知识，不如设计一套能持续发现知识、形成技能并利用知识规划的心智——OaK（Options and Knowledge）架构。"
+image: "https://images.unsplash.com/photo-1765901177316-4aa8870c5e71?q=80&w=2400&auto=format&fit=crop"
 ---
 
 *A Design for an Agent's Mind*
