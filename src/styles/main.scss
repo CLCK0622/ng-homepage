@@ -769,11 +769,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* About Page */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
     gap: 3rem;
     align-items: start;
 
-    @media (max-width: 768px) { grid-template-columns: 1fr; }
+    @media (max-width: 768px) { grid-template-columns: minmax(0, 1fr); }
 
     .about-left {
         position: sticky;
@@ -801,6 +801,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     }
 
     .info-card {
+        min-width: 0;
         margin-top: 1.2rem;
         padding: 1.2rem 1.4rem;
         background: var(--bg-card);
@@ -827,8 +828,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
             margin-bottom: 0.4rem;
 
             svg { flex-shrink: 0; font-size: 1rem; color: var(--text-light); }
+            a { min-width: 0; overflow-wrap: anywhere; }
 
             &:last-child { margin-bottom: 0; }
+        }
+
+        .resume-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            padding: 0.55rem 0.75rem;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.2;
+
+            svg { flex-shrink: 0; font-size: 1rem; }
+            &:hover { background: var(--accent); }
+            &:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 3px; }
         }
 
         .social-icons-row {
@@ -866,6 +885,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     .bio {
         h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
         p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
+    }
+    @media (max-width: 480px) {
+        .about-left { gap: 0.75rem; }
+        .profile-img { width: 6rem; height: 8rem; }
+        .info-card {
+            padding: 1rem 0.9rem;
+            h3 { font-size: 1.2rem; }
+            .resume-link {
+                gap: 0.35rem;
+                padding: 0.5rem;
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            .social-icons-row {
+                gap: 0.25rem;
+                a { width: 30px; height: 30px; }
+            }
+        }
     }
 }
 
@@ -980,6 +1017,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
             font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.5;
+        }
+
+        .timeline-link {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .timeline-summary {
+            margin: 0.65rem 0 0;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        a {
+            text-decoration: underline;
+            text-decoration-color: var(--accent-hover);
+            text-underline-offset: 0.2em;
+
+            &:hover { text-decoration-color: currentColor; }
         }
     }
 }
