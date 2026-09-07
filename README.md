@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CLCK’s personal site
 
-## Getting Started
+Next.js App Router site with Markdown writing, project notes, and an Unsplash photo gallery.
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+```sh
+pnpm install
 pnpm dev
-# or
-bun dev
+pnpm lint
+pnpm build
+pnpm start --hostname 127.0.0.1 --port 3001
+pnpm check:site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`check:site` checks every sitemap page, real 404 responses, canonical URLs, social metadata, RSS, the default PNG share image, and gallery cache headers. It defaults to `http://127.0.0.1:3001`; override with `SITE_CHECK_URL` to use another preview. Run it against a production build for accurate HTTP status checks.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content and SEO
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Articles: `src/posts/*.md`. Frontmatter supports `title`, `description`, `date`, `updated`, `tags`, `image`, `lang`, and `snow`. Set `updated` only when content actually changes; preserve the original publication date.
+- Topic collections: `src/lib/topics.ts`. Project notes: `src/lib/caseStudies.ts`.
+- Shared metadata and author identity: `src/lib/seo.ts`. A default share image is rendered at `/og`.
+- When changing the main pages’ content, update the explicit date in `src/app/sitemap.ts`. Do not replace it with a deployment timestamp.
+- Unknown article, topic, and project URLs return 404. New Markdown articles and configured project/topic slugs are generated on the next build.
+- The Caveat font is locally hosted and subset to the handwritten page titles: Projects, Gallery, Writing, and About Me. Its OFL license is in `public/fonts`. Regenerate the subset if those titles change.
 
-## Learn More
+## Photography
 
-To learn more about Next.js, take a look at the following resources:
+Set `UNSPLASH_ACCESS_KEY` in the deployment environment (or `.env.local`). Optionally set `UNSPLASH_COLLECTION_ID` for the homepage’s rotating photo. Keys stay on the server.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Photo lists and statistics share a one-hour Next.js fetch cache. Photo details are cached for 24 hours. The public API also sends browser caching (5 minutes), CDN caching (1 hour), and stale-while-revalidate (24 hours). Lightbox details have a bounded 5-minute in-memory cache. Errors return 503 with `no-store`, and the gallery offers a retry.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every thumbnail reserves the same 3:2 slot before its image downloads. Skeletons cover these existing slots; pagination never inserts differently sized placeholder rows. Unsplash thumbnails and lightbox images use its image CDN directly with responsive sizes.

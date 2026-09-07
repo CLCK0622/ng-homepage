@@ -1,27 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getPhotos, galleryCacheHeaders } from '@/lib/unsplash';
+import { GALLERY_PAGE_SIZE } from '@/lib/gallery';
 
 export async function GET(req: NextRequest) {
-    const page = req.nextUrl.searchParams.get('page') || '1';
-    const perPage = req.nextUrl.searchParams.get('per_page') || '30';
-    const key = process.env.UNSPLASH_ACCESS_KEY;
-    if (!key) return NextResponse.json([], { status: 400 });
-
-    const res = await fetch(
-        `https://api.unsplash.com/users/clck0622/photos?page=${page}&per_page=${perPage}&order_by=latest`,
-        { headers: { Authorization: `Client-ID ${key}` } }
-    );
-    if (!res.ok) return NextResponse.json([], { status: res.status });
-
-    const photos = await res.json();
-    const mapped = photos.map((p: any) => ({
-        id: p.id,
-        width: p.width,
-        height: p.height,
-        alt_description: p.alt_description,
-        description: p.description,
-        urls: p.urls,
-        links: p.links,
-    }));
-
-    return NextResponse.json(mapped);
+    const page = Number(req.nextUrl.searchParams.get('page') ?? 1);
+    const perPage = Number(req.nextUrl.searchParams.get('per_page') ?? GALLERY_PAGE_SIZE);
+    if (!Number.isInteger(page) || page < 1 || page > 1000 || !Number.isInteger(perPage) || perPage < 1 || perPage > 30) {
+        return NextResponse.json({ error: 'Invalid page or page size' }, { status: 400, headers: { 'Cache-Control': 'no-store' } });
+    }
+    try {
+        return NextResponse.json(await getPhotos(page, perPage), { headers: galleryCacheHeaders });
+    } catch {
+        return NextResponse.json({ error: 'Photos could not be loaded. Please try again.' }, { status: 503, headers: { 'Cache-Control': 'no-store' } });
+    }
 }

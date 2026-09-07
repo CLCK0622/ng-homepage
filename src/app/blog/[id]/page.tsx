@@ -5,6 +5,11 @@ import Image from "next/image";
 import Comments from "@/app/components/Comments";
 import Snow from '@/app/components/Snow';
 import {Metadata} from "next";
+import { notFound } from 'next/navigation';
+import { DEFAULT_SOCIAL_IMAGE, pageMetadata, person } from '@/lib/seo';
+import { SITE_URL } from '@/lib/constants';
+import { getRelatedPosts } from '@/lib/topics';
+import StructuredData from '@/app/components/StructuredData';
 
 export async function generateStaticParams() {
     const posts = getSortedPostsData();
@@ -13,58 +18,29 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-    const { id: rawId } = await params;
-    const id = decodeURIComponent(rawId);
+export const dynamicParams = false;
 
-    try {
-        const post = await getPostData(id);
-        return {
-            title: post.title,
-            description: post.description,
-            openGraph: {
-                title: `${post.title} | CLCK's Site`,
-                description: post.description,
-                type: 'article',
-                publishedTime: post.date,
-                authors: ['Kevin Zhong'],
-                images: post.image ? [
-                    {
-                        url: post.image,
-                        alt: post.title,
-                    }
-                ] : [],
-            },
-            twitter: {
-                card: 'summary_large_image',
-                title: `${post.title} | CLCK's Site`,
-                description: post.description,
-                images: post.image ? [
-                    {
-                        url: post.image,
-                        alt: post.title,
-                    }
-                ] : [],
-                creator: '@CLCKKKKK',
-            },
-        };
-    } catch (error) {
-        return {
-            title: 'Post Not Found',
-            description: 'The requested article could not be found.',
-        };
-    }
+type Props = { params: Promise<{ id: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const post = await getPostData((await params).id);
+    if (!post) notFound();
+    const metadata = pageMetadata(post.title, post.description, `/blog/${post.id}`, post.image || DEFAULT_SOCIAL_IMAGE);
+    return {
+        ...metadata,
+        openGraph: { ...metadata.openGraph, type: 'article', locale: post.lang === 'zh-CN' ? 'zh_CN' : 'en_US', publishedTime: post.date, modifiedTime: post.updated, authors: [`${SITE_URL}/about`] },
+    };
 }
 
-export default async function Post({ params }: any) {
-    const realParams = await params;
-    const id = decodeURIComponent(realParams.id);
-
-    try {
-        const post = await getPostData(id);
-
-        return (
-            <div className="article-container">
+export default async function Post({ params }: Props) {
+    const post = await getPostData((await params).id);
+    if (!post) notFound();
+    const related = getRelatedPosts(post, getSortedPostsData());
+    return (
+            <div className="article-container" lang={post.lang}>
+                <StructuredData data={{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, description: post.description,
+                    datePublished: post.date, dateModified: post.updated, inLanguage: post.lang, author: person,
+                    image: post.image || DEFAULT_SOCIAL_IMAGE, mainEntityOfPage: `${SITE_URL}/blog/${post.id}`, url: `${SITE_URL}/blog/${post.id}` }} />
                 {post.snow && <Snow />}
 
                 <div className="reading-progress-bar"></div>
@@ -77,7 +53,7 @@ export default async function Post({ params }: any) {
 
                 <header className="article-header">
                     <div className="meta">
-                        <span className="date">{post.date}</span>
+                        <time className="date" dateTime={post.date}>{post.date}</time>
                         <div className="tags">
                             {post.tags?.map((t: string) => <span key={t}>#{t}</span>)}
                         </div>
@@ -122,18 +98,14 @@ export default async function Post({ params }: any) {
                     </div>
                 </div>
 
+                {related.length > 0 && <section className="related-posts" aria-labelledby="related-title">
+                    <h2 id="related-title">Keep exploring</h2>
+                    <div>{related.map(item => <Link key={item.id} href={`/blog/${item.id}`}><span>{item.tags.join(' / ')}</span><h3>{item.title}</h3><p>{item.description}</p></Link>)}</div>
+                </section>}
+
                 <div className="comments-section">
                     <Comments />
                 </div>
             </div>
         );
-    } catch (error) {
-        return (
-            <div style={{textAlign: 'center', marginTop: '4rem'}}>
-                <h1>404 - Post Not Found</h1>
-                <p>Could not find post with ID: {id}</p>
-                <Link href="/" style={{textDecoration: 'underline'}}>Go Home</Link>
-            </div>
-        );
-    }
 }

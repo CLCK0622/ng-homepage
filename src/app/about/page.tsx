@@ -4,17 +4,19 @@ import {
 } from 'react-icons/fa';
 import Image from "next/image";
 import {FaMastodon, FaThreads, FaUnsplash, FaXTwitter} from "react-icons/fa6";
-import {Metadata} from "next";
+import { pageMetadata, person } from '@/lib/seo';
+import { SITE_URL } from '@/lib/constants';
+import StructuredData from '@/app/components/StructuredData';
+import PageHeader from '@/app/components/PageHeader';
 import {HiOutlineDocumentText, HiOutlineLocationMarker, HiOutlineMail} from "react-icons/hi";
 
-export const metadata: Metadata = {
-    title: 'About Me',
-    description: 'Kevin Zhong — UIUC ECE student, founder of inklet, and developer building across client software, AI, and hardware.',
-};
+export const metadata = pageMetadata('About Kevin Zhong', 'Kevin Zhong — UIUC ECE undergraduate, founder of inklet, and developer building across client software, AI, and hardware.', '/about');
 
 export default function About() {
     return (
         <div className="page-wrapper">
+            <StructuredData data={{ '@context': 'https://schema.org', '@type': 'ProfilePage', '@id': `${SITE_URL}/about`, mainEntity: person }} />
+            <PageHeader title="About Me" eyebrow="Behind the work" description="Founder, developer & photographer, based in Champaign, Illinois." />
             <div className="about-grid">
                 <div className="about-left">
                     <Image
@@ -25,20 +27,26 @@ export default function About() {
                         className="profile-img"
                     />
                     <div className="info-card">
-                        <h3>Kevin Zhong</h3>
-                        <p className="tagline">Founder, Developer & Photographer</p>
-                        <div className="info-row">
-                            <HiOutlineLocationMarker />
-                            <span>Champaign, IL</span>
+                        <div className="profile-identity">
+                            <h3>Kevin Zhong</h3>
+                            <p className="tagline">Founder, Developer & Photographer</p>
                         </div>
-                        <div className="info-row">
-                            <HiOutlineMail />
-                            <a href="mailto:yiz29@illinois.edu">yiz29@illinois.edu</a>
+                        <div className="profile-details">
+                            <div className="profile-contact">
+                                <div className="info-row">
+                                    <HiOutlineLocationMarker />
+                                    <span>Champaign, IL</span>
+                                </div>
+                                <div className="info-row">
+                                    <HiOutlineMail />
+                                    <a href="mailto:yiz29@illinois.edu">yiz29@illinois.edu</a>
+                                </div>
+                            </div>
+                            <a className="resume-link" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                                <HiOutlineDocumentText aria-hidden="true" />
+                                Resume (PDF)
+                            </a>
                         </div>
-                        <a className="resume-link" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                            <HiOutlineDocumentText aria-hidden="true" />
-                            Resume (PDF)
-                        </a>
 
                         <div className="social-icons-row">
                             <a href="https://github.com/CLCK0622" aria-label="GitHub"><FaGithub /></a>
@@ -54,10 +62,9 @@ export default function About() {
                 </div>
 
                 <div className="bio">
-                    <h2>About Me</h2>
                     <p>
                         Hello! I&#39;m <strong>Kevin Zhong</strong>.
-                        I&#39;m a second-year Grainger ECE student at the University of Illinois Urbana-Champaign. I build products that connect client software, AI, and hardware.
+                        I&#39;m a Grainger ECE undergraduate at the University of Illinois Urbana-Champaign. I build products that connect client software, AI, and hardware.
                     </p>
 
                     <p>

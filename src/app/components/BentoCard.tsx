@@ -1,7 +1,6 @@
-'use client';
-
 import { BsArrowUpRight } from 'react-icons/bs';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface BentoProps {
     post: {
@@ -24,12 +23,12 @@ export default function BentoCard({ post, variant = 'standard', hasButton = fals
         <Link
             href={`/blog/${post.id}`}
             className={`bento-card ${variant} ${post.image ? 'has-image' : ''} ${hasButton ? 'has-btn' : ''}`}
-            style={{ backgroundImage: post.image ? `url(${post.image})` : undefined }}
         >
+            {post.image && <Image src={post.image} alt="" fill sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1200px) 50vw, 320px" className="bento-image" />}
             <div className="content">
                 <div className="header">
-                    <span className="badge">{post.tags}</span>
-                    <span className="date">{post.date}</span>
+                    <span className="badge">{post.tags.join(" / ")}</span>
+                    <time className="date" dateTime={post.date}>{post.date}</time>
                 </div>
 
                 <div className="footer-area">

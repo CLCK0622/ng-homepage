@@ -1,9 +1,14 @@
 import BentoCard from './components/BentoCard';
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { getSortedPostsData } from '@/lib/posts';
 import Image from "next/image";
+import { pageMetadata, person } from '@/lib/seo';
+import { SITE_DESCRIPTION, SITE_URL } from '@/lib/constants';
+import StructuredData from './components/StructuredData';
 import {FaUnsplash} from "react-icons/fa6";
+
+export const metadata = { ...pageMetadata('Kevin Zhong (CLCK) — Founder, Developer & Photographer', SITE_DESCRIPTION, '/'), title: { absolute: 'Kevin Zhong (CLCK) — Founder, Developer & Photographer' } };
 
 interface UnsplashImage {
     urls: {
@@ -31,7 +36,8 @@ async function getRandomHeroImage() {
         const res = await fetch(
             `https://api.unsplash.com/photos/random?client_id=${accessKey}&collections=${collectionId}&orientation=landscape&count=1`,
             {
-                next: { revalidate: 75 }
+                next: { revalidate: 3600 },
+                signal: AbortSignal.timeout(8000)
                 // cache: 'no-store'
             }
         );
@@ -59,6 +65,7 @@ export default async function Home() {
     const heroImage = await getRandomHeroImage();
     return (
         <div className="bento-grid">
+            <StructuredData data={{ '@context': 'https://schema.org', '@type': 'WebSite', name: "CLCK's Site", url: SITE_URL, author: person }} />
             <div className="col-left">
                 {latestPosts[1] ? (
                     <BentoCard
@@ -80,23 +87,24 @@ export default async function Home() {
 
             <div className="col-center">
                 <div className="hero-container">
-                    <Image src={heroImage} alt="Hero" width={4024} height={4024} />
+                    <Image src={heroImage} alt="A moment from my photography collection" fill preload sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1200px) 50vw, 640px" />
                     <div className="hero-overlay">
-                        <h1>We are made of star-stuff, now gazing back at the stars.</h1>
-                        <h1>我们由星辰所铸，如今遥望群星。</h1>
+                        <p>We are made of star-stuff, now gazing back at the stars.</p>
+                        <p lang="zh-CN">我们由星辰所铸，如今遥望群星。</p>
                     </div>
                 </div>
             </div>
 
             <div className="col-right">
                 <div className="intro-box">
-                    <p>Welcome to Kevin Zhong&#39;s digital garden. Weaving code, sculpting design, and pondering life.</p>
+                    <h1>Kevin Zhong<span className="intro-handle"> / CLCK</span></h1>
+                    <p>Founder, developer & photographer. Building inklet, studying ECE at UIUC, and following my curiosity.</p>
                     <div className="social-row">
                         <Link href="/portfolio" className="btn-projects">Projects</Link>
                         <div className="social-icons">
-                            <a href="https://github.com/CLCK0622"><FaGithub size={18} /></a>
-                            <a href="https://www.linkedin.com/in/clckkkkk/"><FaLinkedin size={18} /></a>
-                            <a href="https://unsplash.com/@clck0622"><FaUnsplash size={18} /></a>
+                            <a href="https://github.com/CLCK0622" aria-label="GitHub"><FaGithub size={18} /></a>
+                            <a href="https://www.linkedin.com/in/clckkkkk/" aria-label="LinkedIn"><FaLinkedin size={18} /></a>
+                            <a href="https://unsplash.com/@clck0622" aria-label="Unsplash"><FaUnsplash size={18} /></a>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 ---
 title: "以犀利之锋勾勒人性的多维面向"
 date: 2023-08-14
-tags: ["Lit"]
+tags: ["Literature"]
 description: "借语文作业的契机谈谈鲁迅"
 ---
 

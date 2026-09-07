@@ -3,19 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaHome, FaPenNib, FaUser, FaThLarge, FaCamera } from 'react-icons/fa';
-import {useEffect, useState} from "react";
 
 export default function Navbar() {
     const pathname = usePathname();
-    const [currentPath, setCurrentPath] = useState('');
-
-    useEffect(() => {
-        if (pathname) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
-            setCurrentPath(pathname);
-        }
-    }, [pathname]);
-
     const links = [
         { href: '/', label: 'Home', icon: <FaHome /> },
         { href: '/portfolio', label: 'Portfolio', icon: <FaThLarge /> },
@@ -25,17 +15,17 @@ export default function Navbar() {
     ];
 
     const isActive = (path: string) => {
-        if (!currentPath) return false;
+        if (!pathname) return false;
 
         if (path === '/') {
-            return currentPath === '/';
+            return pathname === '/';
         }
-        return currentPath.startsWith(path);
+        return pathname.startsWith(path);
     };
 
     return (
         <>
-            <nav className="navbar">
+            <nav className="navbar" aria-label="Main navigation">
                 <Link href="/" className="logo">
                     <span className="at">@</span>
                     <span className="id">CLCK</span>
@@ -48,6 +38,8 @@ export default function Navbar() {
                             key={link.href}
                             href={link.href}
                             className={isActive(link.href) ? 'active' : ''}
+                            aria-current={isActive(link.href) ? 'page' : undefined}
+                            aria-label={link.label}
                         >
                             {link.label}
                         </Link>
@@ -55,24 +47,24 @@ export default function Navbar() {
                 </div>
 
                 <div className="nav-action">
-                    <button onClick={() => window.location.href = 'mailto:kevin.zhong@pivothire.tech'}>
-                        Get in touch
-                    </button>
+                    <a className="contact-link" href="mailto:yiz29@illinois.edu">Get in touch</a>
                 </div>
             </nav>
 
             {/* Mobile Bottom Navigation */}
-            <div className="mobile-nav">
+            <nav className="mobile-nav" aria-label="Mobile navigation">
                 {links.map((link) => (
                     <Link
                         key={link.href}
                         href={link.href}
                         className={isActive(link.href) ? 'active' : ''}
+                            aria-current={isActive(link.href) ? 'page' : undefined}
+                            aria-label={link.label}
                     >
-                        {link.icon}
+                        {link.icon}<span className="mobile-nav-label">{link.label}</span>
                     </Link>
                 ))}
-            </div>
+            </nav>
         </>
     );
 }

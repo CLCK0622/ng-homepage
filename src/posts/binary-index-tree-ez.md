@@ -2,7 +2,8 @@
 title: "【模板】树状数组1 & 学习笔记"
 date: 2020-08-11
 tags: ["Tech"]
-description: ""
+description: "从 lowbit 和前缀和理解树状数组，整理单点更新、区间求和的原理、复杂度与 C++ 实现。"
+updated: 2026-09-07
 ---
 
 # [树状数组](https://www.jisuanke.com/course/3054/219887)

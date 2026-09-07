@@ -1,7 +1,7 @@
 ---
 title: "卡夫卡笔下的超现实之旅：从《变形记》到人性的探索"
 date: 2023-08-13
-tags: ["Lit"]
+tags: ["Literature"]
 description: "卡夫卡作品读后感"
 ---
 

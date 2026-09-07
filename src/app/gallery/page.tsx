@@ -1,89 +1,26 @@
-import Link from "next/link";
-import {Metadata} from "next";
-import GalleryGrid from "@/app/components/GalleryGrid";
-import type {PhotoData} from "@/app/components/GalleryLightbox";
-import {FaUnsplash} from "react-icons/fa6";
+import Link from 'next/link';
+import { FaUnsplash } from 'react-icons/fa6';
+import GalleryGrid from '@/app/components/GalleryGrid';
+import PageHeader from '@/app/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
+import { getPhotos, getPhotoStats } from '@/lib/unsplash';
 
-export const metadata: Metadata = {
-    title: 'Gallery',
-    description: 'Street photography and visual stories.',
-};
-
-interface UnsplashStats {
-    views: { total: number; historical: { change: number } };
-    downloads: { total: number; historical: { change: number } };
-}
-
-async function fetchWithKey(url: string) {
-    const key = process.env.UNSPLASH_ACCESS_KEY;
-    if (!key) return null;
-    const res = await fetch(url, {
-        headers: { Authorization: `Client-ID ${key}` },
-        next: { revalidate: 3600 },
-    });
-    if (!res.ok) return null;
-    return res.json();
-}
+export const metadata = pageMetadata('Photography', 'Street photography and everyday observations by Kevin Zhong. Explore a growing collection of photographs, places, and visual stories.', '/gallery');
+export const revalidate = 3600;
 
 export default async function Gallery() {
-    const [allPhotos, stats] = await Promise.all([
-        fetchWithKey('https://api.unsplash.com/users/clck0622/photos?per_page=30&order_by=latest'),
-        fetchWithKey('https://api.unsplash.com/users/clck0622/statistics') as Promise<UnsplashStats | null>,
-    ]);
-
-    const photos: PhotoData[] = (allPhotos || []).map((p: any) => ({
-        id: p.id,
-        width: p.width,
-        height: p.height,
-        alt_description: p.alt_description,
-        description: p.description,
-        urls: p.urls,
-        links: p.links,
-    }));
-
-    return (
-        <div className="page-wrapper gallery-page">
-            <div className="page-header">
-                <h1>Gallery</h1>
-                <p>Street photography and visual stories.</p>
-            </div>
-
-            <div className="gallery-unsplash-link">
-                <Link href="https://unsplash.com/@clck0622" target="_blank">
-                    <FaUnsplash /> View all on Unsplash
-                </Link>
-            </div>
-
-            {stats && (
-                <div className="gallery-stats">
-                    <div className="stat-card">
-                        <div className="stat-header">
-                            <span className="stat-label">Views</span>
-                            <span className="stat-period">Last 30 days</span>
-                        </div>
-                        <span className="stat-value">{stats.views.historical.change.toLocaleString()}</span>
-                        <span className="stat-badge">Top 10% of contributors</span>
-                        <span className="stat-alltime">All time: {stats.views.total.toLocaleString()}</span>
-                    </div>
-                    <div className="stat-card">
-                        <div className="stat-header">
-                            <span className="stat-label">Downloads</span>
-                            <span className="stat-period">Last 30 days</span>
-                        </div>
-                        <span className="stat-value">{stats.downloads.historical.change.toLocaleString()}</span>
-                        <span className="stat-badge">Top 10% of contributors</span>
-                        <span className="stat-alltime">All time: {stats.downloads.total.toLocaleString()}</span>
-                    </div>
-                </div>
-            )}
-
-            {photos.length === 0 ? (
-                <p style={{textAlign: 'center', color: '#999', marginTop: '2rem'}}>
-                    Failed to load photos.
-                </p>
-            ) : (
-                <GalleryGrid initialPhotos={photos} />
-            )}
+    const [photosResult, statsResult] = await Promise.allSettled([getPhotos(), getPhotoStats()]);
+    const photos = photosResult.status === 'fulfilled' ? photosResult.value : [];
+    const stats = statsResult.status === 'fulfilled' ? statsResult.value : null;
+    return <div className="page-wrapper gallery-page">
+        <PageHeader title="Gallery" eyebrow="Through my lens" description="A pause for the places, people, and little things along the way." />
+        <div className="gallery-stats" aria-label="Photography on Unsplash">
+            {stats && <>
+                <div><strong>{stats.views.total.toLocaleString()}</strong><span>views</span></div>
+                <div><strong>{stats.downloads.total.toLocaleString()}</strong><span>downloads</span></div>
+            </>}
+            <Link className="gallery-more-link" href="https://unsplash.com/@clck0622" target="_blank" rel="noopener noreferrer"><FaUnsplash aria-hidden="true" /> More on Unsplash ↗</Link>
         </div>
-    );
+        <GalleryGrid initialPhotos={photos} initialError={photosResult.status === 'rejected'} />
+    </div>;
 }

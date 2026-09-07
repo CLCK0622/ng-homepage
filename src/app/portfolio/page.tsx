@@ -1,12 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaStar, FaCodeBranch, FaGithub } from "react-icons/fa";
-import {Metadata} from "next";
+import { FaStar, FaCodeBranch } from "react-icons/fa";
+import { pageMetadata } from '@/lib/seo';
+import PageHeader from '@/app/components/PageHeader';
 
-export const metadata: Metadata = {
-    title: 'Portfolio',
-    description: 'Interesting ideas on my keyboard.',
-};
+export const metadata = pageMetadata('Projects & Open Source', 'Selected work by Kevin Zhong: robotics, hackathon experiments, interactive websites, apps, and open-source contributions.', '/portfolio');
 
 interface ProjectConfig {
     id: number;
@@ -16,6 +14,7 @@ interface ProjectConfig {
     href?: string;
     image?: string;
     description?: string;
+    caseStudyHref?: string;
 }
 
 const PROJECTS_CONFIG: ProjectConfig[] = [
@@ -57,6 +56,7 @@ const PROJECTS_CONFIG: ProjectConfig[] = [
     {
         id: 5,
         title: 'IEM Website',
+        caseStudyHref: '/blog/iem-carshowcase',
         category: 'Website',
         platform: 'github',
         href: 'https://github.com/mtsun05/iem-website',
@@ -114,15 +114,15 @@ async function fetchGitHubData(repoUrl: string) {
         const match = repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
         if (!match) return null;
 
-        const [_, owner, repo] = match;
+        const [, owner, repo] = match;
 
         const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
-            next: { revalidate: 60 }
+            next: { revalidate: 3600 }, signal: AbortSignal.timeout(8000)
         });
 
         if (!res.ok) return null;
 
-        return await res.json();
+        return await res.json() as { html_url: string; description: string; stargazers_count: number; forks_count: number };
     } catch (error) {
         console.error(`Failed to fetch repo ${repoUrl}`, error);
         return null;
@@ -144,27 +144,24 @@ export default async function Portfolio() {
                 description: item.description || ghData?.description || 'No description provided.',
                 image: item.image || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop',
                 stars: ghData?.stargazers_count,
-                forks: ghData?.forks_count,
+                forks: ghData?.forks_count ?? 0,
             };
         })
     );
 
     return (
         <div className="page-wrapper">
-            <div className="page-header">
-                <h1>Projects</h1>
-                <p>A collection of my past experience and open source contributions.</p>
-            </div>
-
+            <PageHeader title="Projects" eyebrow="Made with curiosity" description="A selection of products, experiments, and things built together." />
             <div className="projects-grid">
                 {projects.map((item) => (
-                    <Link href={item.href} key={item.id} className="project-item" target="_blank">
+                    <Link href={item.caseStudyHref || item.href} key={item.id} className="project-item" target={item.caseStudyHref ? undefined : "_blank"} rel={item.caseStudyHref ? undefined : "noopener noreferrer"}>
                         <div className="img-box">
                             <Image
                                 src={item.image}
                                 alt={item.title}
                                 width={1024}
                                 height={576}
+                                sizes="(max-width: 700px) calc(100vw - 32px), 484px"
                                 className="card-img"
                             />
                         </div>
@@ -186,7 +183,7 @@ export default async function Portfolio() {
                                 )}
                             </div>
 
-                            <h3>{item.title}</h3>
+                            <h2>{item.title}</h2>
                             <p>{item.description}</p>
                         </div>
                     </Link>

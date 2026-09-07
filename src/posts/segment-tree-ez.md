@@ -2,7 +2,8 @@
 title: "线段树 学习笔记 EZ"
 date: 2020-08-10
 tags: ["Tech"]
-description: ""
+description: "线段树入门笔记：通过区间最小值问题梳理建树、单点修改与区间查询，并附 C++ 代码。"
+updated: 2026-09-07
 ---
 
 # 线段树

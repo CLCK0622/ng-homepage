@@ -1,39 +1,21 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_SC } from 'next/font/google';
+import localFont from 'next/font/local';
+import { pageMetadata } from '@/lib/seo';
 import '../styles/main.scss';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { SITE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
+import { SITE_URL, SITE_DESCRIPTION } from '@/lib/constants';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
+const handwriting = localFont({ src: '../../public/fonts/Caveat.ttf', variable: '--font-handwriting', display: 'swap', weight: '600', preload: false });
 
 const notoSansSC = Noto_Sans_SC({ subsets: ['latin'], variable: '--font-cn', weight: ['400', '500', '700'] });
 
 export const metadata: Metadata = {
-    title: {
-        template: `%s | ${SITE_TITLE}`,
-        default: SITE_TITLE,
-    },
-    description: SITE_DESCRIPTION,
+    ...pageMetadata('Kevin Zhong (CLCK) — Founder, Developer & Photographer', SITE_DESCRIPTION, '/'),
+    title: { template: '%s | Kevin Zhong (CLCK)', default: 'Kevin Zhong (CLCK) — Founder, Developer & Photographer' },
     metadataBase: new URL(SITE_URL),
-    alternates: {
-        types: {
-            'application/rss+xml': [
-                { url: '/rss.xml', title: 'RSS Feed' },
-            ],
-        },
-    },
-    openGraph: {
-        siteName: SITE_TITLE,
-        type: 'website',
-        locale: 'en_US',
-        url: './',
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: SITE_TITLE,
-        description: SITE_DESCRIPTION,
-        creator: '@CLCKKKKK',
-    },
 };
 
 export default function RootLayout({
@@ -42,33 +24,28 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className={`${notoSansSC.variable}`}>
+        <html lang="en" className={`${notoSansSC.variable} ${handwriting.variable}`}>
         <head>
-            <link
-                rel="stylesheet"
-                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
-                integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
-                crossOrigin="anonymous"
-            />
             <script defer src="https://cloud.umami.is/script.js" data-website-id="1b934541-1dd5-4860-afce-1d5e0a6c9ad0"></script>
+            {/* App Router root layout: this font is shared by every page. */}
+            {/* eslint-disable-next-line @next/next/no-page-custom-font */}
             <link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&display=swap"
             />
-            <style>
-                @import url(https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Noto+Serif+SC:wght@200..900&display=swap);
-            </style>
+
         </head>
         <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <div className="app-container">
             <Navbar />
-            <main className="main-content">
+            <main id="main-content" className="main-content">
                 {children}
             </main>
             <Footer />
         </div>
-        </body>
         <SpeedInsights/>
+        </body>
         </html>
     );
 }
