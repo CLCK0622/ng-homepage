@@ -4,15 +4,16 @@ import { SITE_URL, SITE_TITLE } from './constants';
 export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/og`;
 
 export function pageMetadata(title: string, description: string, path: string, image = DEFAULT_SOCIAL_IMAGE): Metadata {
+    const socialTitle = title === SITE_TITLE ? SITE_TITLE : `${title} | ${SITE_TITLE}`;
     return {
         title, description,
         alternates: { canonical: path, types: { 'application/rss+xml': '/rss.xml' } },
         openGraph: {
-            title: `${title} | Kevin Zhong`, description, url: path,
+            title: socialTitle, description, url: path,
             siteName: SITE_TITLE, type: 'website', locale: 'en_US',
             images: [{ url: image, alt: title }],
         },
-        twitter: { card: 'summary_large_image', title: `${title} | Kevin Zhong`, description, images: [image], creator: '@CLCKKKKK' },
+        twitter: { card: 'summary_large_image', title: socialTitle, description, images: [image], creator: '@CLCKKKKK' },
     };
 }
 

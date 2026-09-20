@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 import '../styles/main.scss';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { SITE_URL, SITE_DESCRIPTION } from '@/lib/constants';
+import { SITE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const handwriting = localFont({ src: '../../public/fonts/Caveat.ttf', variable: '--font-handwriting', display: 'swap', weight: '600', preload: false });
@@ -13,8 +13,8 @@ const handwriting = localFont({ src: '../../public/fonts/Caveat.ttf', variable: 
 const notoSansSC = Noto_Sans_SC({ subsets: ['latin'], variable: '--font-cn', weight: ['400', '500', '700'] });
 
 export const metadata: Metadata = {
-    ...pageMetadata('Kevin Zhong (CLCK) — Founder, Developer & Photographer', SITE_DESCRIPTION, '/'),
-    title: { template: '%s | Kevin Zhong (CLCK)', default: 'Kevin Zhong (CLCK) — Founder, Developer & Photographer' },
+    ...pageMetadata(SITE_TITLE, SITE_DESCRIPTION, '/'),
+    title: { template: `%s | ${SITE_TITLE}`, default: SITE_TITLE },
     metadataBase: new URL(SITE_URL),
 };
 

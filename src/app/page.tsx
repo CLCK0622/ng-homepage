@@ -4,11 +4,11 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { getSortedPostsData } from '@/lib/posts';
 import Image from "next/image";
 import { pageMetadata, person } from '@/lib/seo';
-import { SITE_DESCRIPTION, SITE_URL } from '@/lib/constants';
+import { SITE_DESCRIPTION, SITE_URL, SITE_TITLE } from '@/lib/constants';
 import StructuredData from './components/StructuredData';
 import {FaUnsplash} from "react-icons/fa6";
 
-export const metadata = { ...pageMetadata('Kevin Zhong (CLCK) — Founder, Developer & Photographer', SITE_DESCRIPTION, '/'), title: { absolute: 'Kevin Zhong (CLCK) — Founder, Developer & Photographer' } };
+export const metadata = { ...pageMetadata(SITE_TITLE, SITE_DESCRIPTION, '/'), title: { absolute: SITE_TITLE } };
 
 interface UnsplashImage {
     urls: {
@@ -65,7 +65,7 @@ export default async function Home() {
     const heroImage = await getRandomHeroImage();
     return (
         <div className="bento-grid">
-            <StructuredData data={{ '@context': 'https://schema.org', '@type': 'WebSite', name: "CLCK's Site", url: SITE_URL, author: person }} />
+            <StructuredData data={{ '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_TITLE, url: SITE_URL, author: person }} />
             <div className="col-left">
                 {latestPosts[1] ? (
                     <BentoCard
