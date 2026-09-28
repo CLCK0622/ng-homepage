@@ -2,6 +2,7 @@
 title: "如何借助 AI 让研发任务可以被异步托付？"
 date: "2026-09-27"
 tags: ["Tech"]
+image: "https://images.unsplash.com/photo-1753715613388-7e03410b1dce?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 description: "从阿里实习中的 Harness 实践和一次技术交流出发，讨论 Agent 自主编排与 Graph 优先架构的适用边界，以及如何通过明确的流程、授权和验收，让研发任务可以被异步托付。"
 ---
 
