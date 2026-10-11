@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { SITE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
 
 const handwriting = localFont({ src: '../../public/fonts/Caveat.ttf', variable: '--font-handwriting', display: 'swap', weight: '600', preload: false });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
             <Footer />
         </div>
         <SpeedInsights/>
+        <Analytics />
         </body>
         </html>
     );
