@@ -1,0 +1,14 @@
+{
+  "[typst]": {
+    "editor.defaultFormatter": "myriad-dreamin.tinymist",
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on"
+  },
+  "tinymist.rootPath": "${workspaceFolder}",
+  "tinymist.exportPdf": "onSave",
+  "tinymist.outputPath": "$root/output/pdf/resume",
+  "tinymist.formatterMode": "typstyle",
+  "tinymist.previewFeature": "enable",
+  "tinymist.preview.refresh": "onType",
+  "tinymist.systemFonts": true
+}

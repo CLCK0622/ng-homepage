@@ -17,6 +17,8 @@ pnpm check:site
 
 ## Content and SEO
 
+- Resume: edit `resume/main.typ`, then run `make -C resume publish` to compile and update `public/resume.pdf`. Commit both the source and the website PDF. See [the Typst project guide](resume/README.md) for editor setup.
+
 - Articles: `src/posts/*.md`. Frontmatter supports `title`, `description`, `date`, `updated`, `tags`, `image`, `lang`, and `snow`. Set `updated` only when content actually changes; preserve the original publication date.
 - Topic collections: `src/lib/topics.ts`. Project notes: `src/lib/caseStudies.ts`.
 - Shared metadata and author identity: `src/lib/seo.ts`. A default share image is rendered at `/og`.
