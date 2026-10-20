@@ -62,7 +62,7 @@
   institution: "University of Illinois Urbana-Champaign",
   location: "Champaign, IL",
   dates: dates-helper(start-date: "Aug 2025", end-date: "May 2029"),
-  degree: "Bachelor of Science in Electrical Engineering",
+  degree: "B.S. in Electrical Engineering; Minor in Business",
 
   // Uncomment the line below if you want edu formatting to be consistent with everything else
   consistent: true
